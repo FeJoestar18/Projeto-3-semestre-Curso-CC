@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Cadastro de Usuário</h2>
-    <form action="api/register.php" method="POST">
+    <form action="../api/register.php" method="POST">
         <label for="email">E-mail:</label><br>
         <input type="email" id="email" name="email" required><br><br>
 

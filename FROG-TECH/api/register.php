@@ -11,34 +11,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Validações
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "E-mail inválido!";
-        exit;
+        return;
     }
 
     if (!preg_match("/^\d{11}$/", $cpf)) {
         echo "CPF inválido. Deve ter 11 dígitos.";
-        exit;
+        return;
     }
 
     if (!preg_match("/^\d{10,11}$/", $telefone)) {
         echo "Telefone inválido. Deve ter 10 ou 11 dígitos.";
-        exit;
+        return;
     }
 
     if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/', $senha)) {
         echo "A senha deve ter no mínimo 8 caracteres, incluindo letra maiúscula, minúscula, número e caractere especial.";
-        exit;
+        return;
     }
-   
-        $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
-        
-    $verificaCpf = $pdo->prepare("SELECT id FROM usuarios WHERE cpf = :cpf");
-    $verificaCpf->bindParam(':cpf', $cpf);
-    $verificaCpf->execute();
 
-    if ($verificaCpf->rowCount() > 0) {
-        echo "Este CPF já está cadastrado!";
-        exit;
+    $check = $pdo->prepare("SELECT id FROM usuarios WHERE cpf = :cpf OR email = :email OR telefone = :telefone");
+    $check->bindParam(':cpf', $cpf);
+    $check->bindParam(':email', $email);
+    $check->bindParam(':telefone', $telefone);
+    $check->execute();
+
+    if ($check->rowCount() > 0) {
+        
+        while ($user = $check->fetch()) {
+            
+            echo "CPF, e-mail ou telefone já cadastrado!";
+            return;
+        }
     }
+
+    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO usuarios (email, senha, cpf, telefone) VALUES (:email, :senha, :cpf, :telefone)";
     $stmt = $pdo->prepare($sql);
@@ -49,8 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bindParam(':telefone', $telefone);
 
     if ($stmt->execute()) {
-        header('Location: ../login.php');
-        exit; 
+        echo "sucesso";
     } else {
         $errorInfo = $stmt->errorInfo(); 
         echo "Erro ao cadastrar usuário: " . $errorInfo[2];
