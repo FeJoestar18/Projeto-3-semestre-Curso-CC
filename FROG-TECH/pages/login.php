@@ -11,7 +11,7 @@ session_start();
 </head>
 <body>
     <h2>Login</h2>
-    <form action="api/auth-login.php" method="POST">
+    <form action="../api/auth-login.php" method="POST">
         <label for="cpf">CPF:</label><br>
         <input type="text" id="cpf" name="cpf" required><br><br>
 
