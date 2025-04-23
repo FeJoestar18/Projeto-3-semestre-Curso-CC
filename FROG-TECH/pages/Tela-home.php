@@ -1,13 +1,4 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['user_id'])) {
-  
-    header('Location: login.php');
-    exit;
-}
-
-?>
+<?php include('protect.php'); ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
