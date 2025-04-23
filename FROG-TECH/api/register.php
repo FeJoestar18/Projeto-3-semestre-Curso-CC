@@ -34,7 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bindParam(':telefone', $telefone);
 
     if ($stmt->execute()) {
-        echo "Cadastro realizado com sucesso!";
+        header('Location: ../login.php');
+        exit; 
     } else {
         $errorInfo = $stmt->errorInfo(); 
         echo "Erro ao cadastrar usuário: " . $errorInfo[2];
