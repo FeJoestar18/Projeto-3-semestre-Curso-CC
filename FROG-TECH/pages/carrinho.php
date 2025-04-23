@@ -2,15 +2,20 @@
 session_start();
 include('../api/Conect/conecao.php');
 
+if (!isset($_SESSION['usuario_id'])) {
+    echo "Você precisa estar logado para acessar o carrinho.";
+    exit;
+}
+
 if (!isset($_SESSION['carrinho'])) {
     $_SESSION['carrinho'] = [];
 }
 
-$total = 0; 
+$total = 0;
 
-if (isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])) {
+if (!empty($_SESSION['carrinho'])) {
     foreach ($_SESSION['carrinho'] as $item) {
-        $total += $item['preco'] * $item['quantidade']; 
+        $total += $item['preco'] * $item['quantidade'];
     }
 
     echo "<h1>Carrinho de Compras</h1>";
@@ -28,8 +33,9 @@ if (isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])) {
 }
 
 if (isset($_POST['finalizar'])) {
-   
+    $usuario_id = $_SESSION['usuario_id'];
     $compra_sucesso = true;
+
     foreach ($_SESSION['carrinho'] as $item) {
         $produto_id = $item['id'];
         $quantidade = $item['quantidade'];
@@ -42,11 +48,12 @@ if (isset($_POST['finalizar'])) {
         $produto = $stmt->fetch();
 
         if ($produto && $produto['quantidade'] >= $quantidade) {
-            
-            $query = "INSERT INTO compras (produto_id, nome_produto, preco, quantidade) 
-                      VALUES (:produto_id, :nome_produto, :preco, :quantidade)";
+          
+            $query = "INSERT INTO compras (usuario_id, produto_id, nome_produto, preco, quantidade) 
+                      VALUES (:usuario_id, :produto_id, :nome_produto, :preco, :quantidade)";
             $stmt = $pdo->prepare($query);
-            $stmt->execute([ 
+            $stmt->execute([
+                ':usuario_id' => $usuario_id,
                 ':produto_id' => $produto_id,
                 ':nome_produto' => $nome_produto,
                 ':preco' => $preco,
@@ -64,10 +71,7 @@ if (isset($_POST['finalizar'])) {
     }
 
     if ($compra_sucesso) {
-      
         unset($_SESSION['carrinho']);
-        echo "<h2>Compra finalizada com sucesso! Total: R$" . number_format($total, 2, ',', '.') . "</h2>";
-        
         header("Location: ../pages/Pagamento-recebido.php");
         exit;
     } else {

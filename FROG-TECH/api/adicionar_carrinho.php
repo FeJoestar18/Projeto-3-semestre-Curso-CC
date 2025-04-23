@@ -1,5 +1,11 @@
 <?php
+
 session_start();
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: ../pages/login.php"); 
+    exit;
+}
+
 include('../api/Conect/conecao.php');
 
 if (isset($_POST['acao']) && $_POST['acao'] == 'carrinho') {
