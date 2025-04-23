@@ -8,7 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $cpf = $_POST['cpf'];
     $telefone = $_POST['telefone'];
 
-    // Validações
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "E-mail inválido!";
         return;
@@ -55,7 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bindParam(':telefone', $telefone);
 
     if ($stmt->execute()) {
-        echo "sucesso";
+        header('Location: ../login.php');
+        exit; 
+        
     } else {
         $errorInfo = $stmt->errorInfo(); 
         echo "Erro ao cadastrar usuário: " . $errorInfo[2];
