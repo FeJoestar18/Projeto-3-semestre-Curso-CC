@@ -15,13 +15,13 @@ if (isset($_GET['id'])) {
         echo "<p>Preço: R$" . number_format($produto['preco'], 2, ',', '.') . "</p>";
         echo "<p>Quantidade disponível: " . $produto['quantidade'] . "</p>";
 
-        echo "<form method='post' action='adicionar_carrinho.php'>
+        echo "<form method='post' action='../api/adicionar_carrinho.php'>
                 <input type='hidden' name='produto_id' value='" . $produto['id'] . "'>
                 <input type='number' name='quantidade' min='1' max='" . $produto['quantidade'] . "' required>
                 <button type='submit' name='acao' value='carrinho'>Adicionar ao Carrinho</button>
               </form>";
 
-        echo "<form method='post' action='comprar.php'>
+        echo "<form method='post' action='../api/comprar.php'>
                 <input type='hidden' name='produto_id' value='" . $produto['id'] . "'>
                 <input type='number' name='quantidade' min='1' max='" . $produto['quantidade'] . "' required>
                 <button type='submit' name='acao' value='comprar'>Comprar Agora</button>

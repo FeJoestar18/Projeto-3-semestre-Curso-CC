@@ -34,7 +34,7 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'carrinho') {
             ];
         }
 
-        header("Location: carrinho.php");
+        header("Location: ../pages/carrinho.php");
         exit; 
     } else {
         echo "Produto não encontrado.";
