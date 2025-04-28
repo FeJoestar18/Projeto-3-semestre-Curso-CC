@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../api/Conect/conecao.php');
+include('../Controller/Conect/conecao.php');
 
 if (!isset($_SESSION['usuario_id'])) {
     echo "Você precisa estar logado para acessar o carrinho.";

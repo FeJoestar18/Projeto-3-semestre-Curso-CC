@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../api/Conect/conecao.php');
+include('../Controller/Conect/conecao.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];

@@ -6,7 +6,7 @@ if (!isset($_SESSION['usuario_id'])) {
     exit;
 }
 
-include('../api/Conect/conecao.php');
+include('../Controller/Conect/conecao.php');
 
 if (isset($_POST['acao']) && $_POST['acao'] == 'carrinho') {
     $produto_id = (int) $_POST['produto_id'];

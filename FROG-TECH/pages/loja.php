@@ -1,5 +1,5 @@
 <?php
-include('../api/Conect/conecao.php'); 
+include('../Controller/Conect/conecao.php'); 
 
 $query = "SELECT * FROM produtos";
 $stmt = $pdo->query($query);
