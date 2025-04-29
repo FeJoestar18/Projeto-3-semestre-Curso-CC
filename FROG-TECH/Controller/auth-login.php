@@ -1,22 +1,18 @@
 <?php
 session_start(); 
 
+include ('../Controller/regex/Login-regex.php');
 include('../Controller/Conect/conecao.php'); 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $cpf = $_POST['cpf'];
     $senha = $_POST['senha'];
 
-    if (!preg_match("/^\d{11}$/", $cpf)) {
-        echo "CPF inválido. Deve ter 11 dígitos.";
-        exit;
-    }
-
     $sql = "SELECT * FROM usuarios WHERE cpf = :cpf";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':cpf', $cpf);
     $stmt->execute();
-
+    
     $user = $stmt->fetch();
 
     if ($user) {
