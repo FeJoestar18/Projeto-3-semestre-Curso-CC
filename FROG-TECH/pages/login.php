@@ -19,7 +19,10 @@ session_unset();
         <label for="senha">Senha:</label><br>
         <input type="password" id="senha" name="senha" required><br><br>
 
-        <input type="submit" value="Entrar">
+        <input type="submit" value="Entrar"><br>
+        <a href="Tela-registro.php">Cadastrar</a><br>
+        <a href="recuperar_senha.php">Esqueci minha senha</a>
+        
     </form>
 </body>
 </html>
