@@ -2,7 +2,7 @@
 session_start();
 include('../Controller/Conect/conecao.php');
 
-if (!isset($_SESSION['usuario_id'])) {
+if (!isset($_SESSION['user_id'])) {
     echo "Você precisa estar logado para acessar o carrinho.";
     exit;
 }
@@ -33,7 +33,7 @@ if (!empty($_SESSION['carrinho'])) {
 }
 
 if (isset($_POST['finalizar'])) {
-    $usuario_id = $_SESSION['usuario_id'];
+    $user_id = $_SESSION['user_id'];
     $compra_sucesso = true;
 
     foreach ($_SESSION['carrinho'] as $item) {
@@ -49,11 +49,11 @@ if (isset($_POST['finalizar'])) {
 
         if ($produto && $produto['quantidade'] >= $quantidade) {
           
-            $query = "INSERT INTO compras (usuario_id, produto_id, nome_produto, preco, quantidade) 
-                      VALUES (:usuario_id, :produto_id, :nome_produto, :preco, :quantidade)";
+            $query = "INSERT INTO compras (user_id, produto_id, nome_produto, preco, quantidade) 
+                      VALUES (:user_id, :produto_id, :nome_produto, :preco, :quantidade)";
             $stmt = $pdo->prepare($query);
             $stmt->execute([
-                ':usuario_id' => $usuario_id,
+                ':user_id' => $user_id,
                 ':produto_id' => $produto_id,
                 ':nome_produto' => $nome_produto,
                 ':preco' => $preco,

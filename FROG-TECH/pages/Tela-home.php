@@ -1,4 +1,12 @@
-<?php include('../Controller/protect.php'); ?>
+<?php include('../Controller/protect.php'); 
+
+if (isset($_SESSION['user_id'])) {
+    echo "Usuário logado com ID: " . $_SESSION['user_id'];
+} else {
+    echo "Usuário não logado.";
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">

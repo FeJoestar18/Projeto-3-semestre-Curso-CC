@@ -3,7 +3,7 @@
 session_start();
 include('../Controller/Conect/conecao.php');
 
-if (!isset($_SESSION['usuario_id'])) {
+if (!isset($_SESSION['user_id'])) {
     header("Location: ../pages/login.php");
     exit;
 }
@@ -11,7 +11,7 @@ if (!isset($_SESSION['usuario_id'])) {
 if (isset($_POST['acao']) && $_POST['acao'] == 'comprar') {
     $produto_id = (int) $_POST['produto_id'];
     $quantidade = (int) $_POST['quantidade'];
-    $usuario_id = $_SESSION['usuario_id'];
+    $user_id = $_SESSION['user_id'];
 
     $query = "SELECT * FROM produtos WHERE id = :produto_id";
     $stmt = $pdo->prepare($query);
@@ -20,11 +20,11 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'comprar') {
 
     if ($produto && $produto['quantidade'] >= $quantidade) {
        
-        $query = "INSERT INTO compras (usuario_id, produto_id, nome_produto, preco, quantidade) 
-                  VALUES (:usuario_id, :produto_id, :nome_produto, :preco, :quantidade)";
+        $query = "INSERT INTO compras (user_id, produto_id, nome_produto, preco, quantidade) 
+                  VALUES (:user_id, :produto_id, :nome_produto, :preco, :quantidade)";
         $stmt = $pdo->prepare($query);
         $stmt->execute([
-            ':usuario_id' => $usuario_id,
+            ':user_id' => $user_id,
             ':produto_id' => $produto_id,
             ':nome_produto' => $produto['nome'],
             ':preco' => $produto['preco'],
@@ -39,7 +39,7 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'comprar') {
             ':produto_id' => $produto_id
         ]);
 
-        header("Location: ../pages/pagamento_recebido.php");
+        header("Location: ../pages/checkout.php");
         exit;
     } else {
         echo "Estoque insuficiente!";
