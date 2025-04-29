@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bindParam(':telefone', $telefone);
 
     if ($stmt->execute()) {
-        header('Location: ../pages/login.php');
+        header('Location: ../pages/Tela-home.php');
         exit;
     } else {
         $_SESSION['error'] = "Erro ao cadastrar usuário: " . $stmt->errorInfo()[2];

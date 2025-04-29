@@ -21,16 +21,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($user) {
         if (password_verify($senha, $user['senha'])) {
-           
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_email'] = $user['email']; 
+            // Usando 'usuario_id' para manter consistência com o carrinho
+            $_SESSION['usuario_id'] = $user['id'];
+            $_SESSION['usuario_email'] = $user['email'];
             header('Location: ../pages/Tela-home.php');
-            exit; 
+            exit;
         } else {
             echo "Senha incorreta!";
         }
     } else {
         echo "Usuário não encontrado!";
     }
+    
 }
 ?>

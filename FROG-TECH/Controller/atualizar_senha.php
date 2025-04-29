@@ -1,4 +1,5 @@
 <?php
+
 require '../Controller/Conect/conecao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
