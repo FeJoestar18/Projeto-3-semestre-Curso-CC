@@ -2,7 +2,7 @@
 
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../pages/login.php"); 
+    header("Location: ../pages-usuario/login.php"); 
     exit;
 }
 
@@ -40,7 +40,7 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'carrinho') {
             ];
         }
 
-        header("Location: ../pages/carrinho.php");
+        header("Location: ../pages-usuario/carrinho.php");
         exit; 
     } else {
         echo "Produto não encontrado.";

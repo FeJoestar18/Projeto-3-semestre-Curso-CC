@@ -4,7 +4,7 @@ session_start();
 include('../Controller/Conect/conecao.php');
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../pages/login.php");
+    header("Location: ../pages-usuario/login.php");
     exit;
 }
 
@@ -39,7 +39,7 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'comprar') {
             ':produto_id' => $produto_id
         ]);
 
-        header("Location: ../pages/checkout.php");
+        header("Location: ../pages-usuario/checkout.php");
         exit;
     } else {
         echo "Estoque insuficiente!";

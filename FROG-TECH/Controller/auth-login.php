@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
            
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_email'] = $user['email']; 
-            header('Location: ../pages/Tela-home.php');
+            header('Location: ../pages-usuario/Tela-home-usuario.php');
             exit; 
         } else {
             echo "Senha incorreta!";
