@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($check->rowCount() > 0) {
         $_SESSION['error'] = "CPF, e-mail ou telefone já cadastrado!";
-        header("Location: ../pages-usuario/Tela-registro.php");
+        header("Location: ../pages-usuario/Login-Cadastro/Tela-registro.php");
         exit;
     }
 
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     } else {
         $_SESSION['error'] = "Erro ao cadastrar usuário: " . $stmt->errorInfo()[2];
-        header("Location: ../pages-usuario/Tela-registro.php");
+        header("Location: ../pages-usuario/Login-Cadastro/Tela-registro.php");
         exit;
     }
 }
