@@ -1,5 +1,7 @@
-<?php 
-include('../Controller/protect.php'); 
+<?php
+include("../Controller/Conect/conecao.php");
+session_start();
+include("../Controller/protect.php");
 
 if (isset($_SESSION['user_id'])) {
     echo "Usuário logado com ID: " . $_SESSION['user_id'];
@@ -7,7 +9,6 @@ if (isset($_SESSION['user_id'])) {
     echo "Usuário não logado.";
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,7 +18,7 @@ if (isset($_SESSION['user_id'])) {
 </head>
 <body>
     <h2>Bem-vindo à Home!</h2>
-    <a href="../pages-usuario/loja.php">Produtos</a><br>
+    <a href="../pages-usuario/loja/loja.php">Produtos</a><br>
     <a href="../Controller/logout.php" onclick="return confirm('Deseja realmente sair?')">Sair</a>
 </body>
 </html>

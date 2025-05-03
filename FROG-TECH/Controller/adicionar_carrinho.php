@@ -1,12 +1,11 @@
 <?php
-
+include(__DIR__ . "/Conect/conecao.php");
 session_start();
-if (!isset($_SESSION['user_id'])) {
-    header("Location: ../pages-usuario/cadastro/login.php"); 
-    exit;
-}
+include(__DIR__ . "/protect.php");
 
-include('../Controller/Conect/conecao.php');
+include_once(__DIR__ . "/Conect/config-url.php");
+
+
 
 if (isset($_POST['acao']) && $_POST['acao'] == 'carrinho') {
     $produto_id = (int) $_POST['produto_id'];
@@ -40,7 +39,7 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'carrinho') {
             ];
         }
 
-        header("Location: ../pages-usuario/carrinho.php");
+        header("Location: " . BASE_URL . "/pages-usuario/loja/carrinho.php");
         exit; 
     } else {
         echo "Produto não encontrado.";

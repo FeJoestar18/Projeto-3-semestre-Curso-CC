@@ -1,11 +1,13 @@
 <?php
+include(__DIR__ . "/../../Controller/Conect/conecao.php");
 session_start();
-include('../Controller/Conect/conecao.php');
-
-if (!isset($_SESSION['user_id'])) {
-    echo "Você precisa estar logado para acessar o carrinho.";
-    exit;
-}
+include(__DIR__ . "/../../Controller/protect.php");
+include_once('../../Controller/Conect/config-url.php');
+// if (isset($_SESSION['user_id'])) {
+//     echo "Usuário logado com ID: " . $_SESSION['user_id'];
+// } else {
+//     echo "Usuário não logado.";
+// }
 
 if (!isset($_SESSION['carrinho'])) {
     $_SESSION['carrinho'] = [];
@@ -72,7 +74,7 @@ if (isset($_POST['finalizar'])) {
 
     if ($compra_sucesso) {
         unset($_SESSION['carrinho']);
-        header("Location: ../pages-usuario/Pagamento-recebido.php");
+        header("Location: ../loja/Pagamento-recebido.php");
         exit;
     } else {
         echo "<h2>Houve um erro na finalização da compra. Tente novamente mais tarde.</h2>";

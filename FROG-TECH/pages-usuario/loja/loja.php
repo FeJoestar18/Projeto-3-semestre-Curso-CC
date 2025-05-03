@@ -1,5 +1,12 @@
 <?php
-include('../Controller/Conect/conecao.php'); 
+include(__DIR__ . "/../../Controller/Conect/conecao.php");
+session_start();
+include(__DIR__ . "/../../Controller/protect.php");
+// if (isset($_SESSION['user_id'])) {
+//     echo "Usuário logado com ID: " . $_SESSION['user_id'];
+// } else {
+//     echo "Usuário não logado.";
+// }
 
 $query = "SELECT * FROM produtos";
 $stmt = $pdo->query($query);
