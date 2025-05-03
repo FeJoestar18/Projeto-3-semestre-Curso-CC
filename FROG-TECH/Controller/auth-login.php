@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-
+include_once('Conect/config-url.php');
 include ('../Controller/regex/Login-regex.php');
 include('../Controller/Conect/conecao.php'); 
 
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
            
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_email'] = $user['email']; 
-            header('Location: ../pages-usuario/Tela-home-usuario.php');
+            header("Location: " . BASE_URL . "/pages-usuario/Tela-home-usuario.php");
             exit; 
         } else {
             echo "Senha incorreta!";

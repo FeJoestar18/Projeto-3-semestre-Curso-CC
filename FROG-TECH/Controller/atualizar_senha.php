@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([$senhaHash, $user['id']]);
 
         echo "Senha atualizada com sucesso!";
-        header("Location: ../pages-usuario/login.php");
+        header("Location: ../pages-usuario/cadastro/login.php");
         
         exit;
 

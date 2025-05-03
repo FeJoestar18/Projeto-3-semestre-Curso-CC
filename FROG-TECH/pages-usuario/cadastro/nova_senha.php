@@ -3,9 +3,11 @@ $token = $_GET['token'] ?? '';
 if (!$token) {
     die("Token inválido.");
 }
+
+include_once('../../Controller/Conect/config-url.php'); 
 ?>
 
-<form action="../Controller/atualizar_senha.php" method="post">
+<form action="<?= BASE_URL ?>/Controller/atualizar_senha.php" method="post">
     <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
 
     <label>Nova senha:</label>

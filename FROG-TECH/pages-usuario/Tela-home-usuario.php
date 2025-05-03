@@ -1,11 +1,11 @@
-<?php include('../Controller/protect.php'); 
+<?php 
+include('../Controller/protect.php'); 
 
 if (isset($_SESSION['user_id'])) {
     echo "Usuário logado com ID: " . $_SESSION['user_id'];
 } else {
     echo "Usuário não logado.";
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -17,10 +17,7 @@ if (isset($_SESSION['user_id'])) {
 </head>
 <body>
     <h2>Bem-vindo à Home!</h2>
-    <p>Você está logado como: <?php echo $_SESSION['user_email']; ?></p>
     <a href="../pages-usuario/loja.php">Produtos</a><br>
     <a href="../Controller/logout.php" onclick="return confirm('Deseja realmente sair?')">Sair</a>
-
-
 </body>
 </html>

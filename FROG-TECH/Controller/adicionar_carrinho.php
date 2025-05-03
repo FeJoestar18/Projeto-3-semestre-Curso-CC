@@ -2,7 +2,7 @@
 
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../pages-usuario/login.php"); 
+    header("Location: ../pages-usuario/cadastro/login.php"); 
     exit;
 }
 

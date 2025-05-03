@@ -1,3 +1,8 @@
+<?php 
+include_once('../../Controller/Conect/config-url.php'); 
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +11,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="../Controller/enviar_link.php" method="post">
+<form action="<?= BASE_URL ?>/Controller/enviar_link.php" method="post">
     <h2>Recuperar Senha</h2>
     <label for="email">Digite seu e-mail:</label>
     <input type="email" name="email" required>

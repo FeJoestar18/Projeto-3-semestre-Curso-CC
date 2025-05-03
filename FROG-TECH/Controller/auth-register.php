@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once('Conect/config-url.php');
 include('../Controller/Conect/conecao.php');
 include ('../Controller/regex/Register-regex.php');
 
@@ -17,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($check->rowCount() > 0) {
         $_SESSION['error'] = "CPF, e-mail ou telefone já cadastrado!";
-        header("Location: ../pages-usuario/Tela-registro.php");
+        header("Location: " . BASE_URL . " /cadastro/registro.php");
         exit;
     }
 
@@ -31,12 +32,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bindParam(':telefone', $telefone);
 
     if ($stmt->execute()) {
-        header('Location: ../pages-usuario/Tela-home.php');
+        header("Location: " . BASE_URL . "/pages-usuario/Tela-home-usuario.php");
         exit;
     } else {
         $_SESSION['error'] = "Erro ao cadastrar usuário: " . $stmt->errorInfo()[2];
-        header("Location: ../pages-usuario/Tela-registro.php");
+        header("Location: " . BASE_URL . "/pages-usuario/cadastro/registro.php");
         exit;
     }
+    
 }
 ?>
