@@ -72,7 +72,7 @@ if (isset($_POST['finalizar'])) {
 
     if ($compra_sucesso) {
         unset($_SESSION['carrinho']);
-        header("Location: ../pages-usuario/Pagamento-recebido.php");
+        header("Location: ../pages-usuario/Loja/Pagamento-recebido.php");
         exit;
     } else {
         echo "<h2>Houve um erro na finalização da compra. Tente novamente mais tarde.</h2>";

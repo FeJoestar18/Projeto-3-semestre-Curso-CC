@@ -3,7 +3,7 @@ session_start();
 session_unset(); 
 session_destroy();
 
-header('Location: ../pages-usuario/login.php');
+header('Location: ../pages-usuario/Login-Cadastro/login.php');
 
 exit;
 ?>
