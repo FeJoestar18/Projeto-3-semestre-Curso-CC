@@ -1,54 +1,26 @@
 <?php
-include_once('../../Controller/Conect/config-url.php');
-include(__DIR__ . "/../../Controller/Conect/conecao.php");
 session_start();
-include(__DIR__ . "/../../Controller/protect.php");
+include(__DIR__ . "/../../Controller/process-checkout.php");
+include(__DIR__ . "/../../Controller/Conect/conecao.php");
 
-$id = $_SESSION['user_id'] ?? null;
+$idProduto = $_POST['produto_id'] ?? null;
 
-if (!$id) {
-    header("Location: " . BASE_URL . " /pages-usuario/cadastro/login.php");
+
+if (!$idProduto || !is_numeric($idProduto)) {
+    echo "Produto não selecionado.";
     exit;
 }
 
-// Buscar endereço no banco
-$stmt = $pdo->prepare("SELECT cep, rua, bairro, cidade, estado FROM usuarios WHERE id = ?");
-$stmt->bindParam(1, $id, PDO::PARAM_INT);  
-$stmt->execute();
-$usuario = $stmt->fetch(PDO::FETCH_ASSOC);  
 
-if (
-    empty($usuario['cep']) ||
-    empty($usuario['rua']) ||
-    empty($usuario['bairro']) ||
-    empty($usuario['cidade']) ||
-    empty($usuario['estado'])
-) {
-    header("Location: " . BASE_URL . "pages-usuario/dados-endereco/form_endereco.php");
+$stmtProduto = $pdo->prepare("SELECT nome, preco FROM produtos WHERE id = ?");
+$stmtProduto->execute([$idProduto]);
+$produto = $stmtProduto->fetch(PDO::FETCH_ASSOC);
+
+if (!$produto) {
+    echo "Produto não encontrado.";
     exit;
-}
-
-$produto = [
-    'nome' => 'Mouse Gamer',
-    'preco' => 999.99,
-    'cor' => 'Preto',
-];
-
-function calcularFrete($cepDestino) {
-    $cepBase = '01000000';
-    $destino = preg_replace('/[^0-9]/', '', $cepDestino);
-    $distancia = abs((int)$destino - (int)$cepBase);
-    $distanciaKm = $distancia / 1000;
-    return round(10 + ($distanciaKm * 0.5), 2);
-}
-
-$frete = 0;
-if ($usuario['cep']) {
-    $frete = calcularFrete($usuario['cep']);
-    $_SESSION['frete'] = $frete;
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,17 +39,15 @@ if ($usuario['cep']) {
 <div class="card">
     <h2>Checkout - FrogTech</h2>
 
-    <h3><?php echo $produto['nome']; ?> (<?php echo $produto['cor']; ?>)</h3>
-    <p>Preço: R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></p>
+    <h3><?= htmlspecialchars($produto['nome']) ?></h3>
+    <p>Preço: R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
 
-    <p class="frete-info">Frete para o CEP <?php echo $usuario['cep']; ?>: R$ <?php echo number_format($frete, 2, ',', '.'); ?></p>
+    <p class="frete-info">Frete para o CEP <?= htmlspecialchars($usuario['cep']) ?>: R$ <?= number_format($frete, 2, ',', '.') ?></p>
 
     <hr>
 
     <p><strong>Endereço de entrega:</strong><br>
-        <?php
-        echo "{$usuario['rua']}, {$usuario['bairro']} - {$usuario['cidade']}/{$usuario['estado']} - CEP {$usuario['cep']}";
-        ?>
+        <?= htmlspecialchars("{$usuario['rua']}, {$usuario['bairro']} - {$usuario['cidade']}/{$usuario['estado']} - CEP {$usuario['cep']}") ?>
     </p>
 
     <hr>
@@ -89,6 +59,8 @@ if ($usuario['cep']) {
     </h3>
 
     <form action="<?= BASE_URL ?>pages-usuario/loja/Pagamento-recebido.php" method="post">
+        <input type="hidden" name="produto_id" value="<?= $idProduto ?>">
+        <input type="hidden" name="valor_total" value="<?= $total ?>">
         <button type="submit">PAGAR</button>
     </form>
 </div>
