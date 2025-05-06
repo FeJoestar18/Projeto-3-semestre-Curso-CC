@@ -28,7 +28,6 @@ include_once('../../Controller/Conect/config-url.php');
     <h2>Cadastro de Usuário</h2>
     <form action="<?= BASE_URL ?>Controller/auth-register.php" method="POST">
 
-
         <label for="email">E-mail:</label><br>
         <input type="email" id="email" name="email" required><br><br>
 

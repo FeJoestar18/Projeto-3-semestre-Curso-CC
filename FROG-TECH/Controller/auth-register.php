@@ -31,7 +31,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bindParam(':cpf', $cpf);
     $stmt->bindParam(':telefone', $telefone);
 
+
+    // Script para testar se o id está vindo diferente de 0
+    
+    // if ($stmt->execute()) {
+    //     $id = $pdo->lastInsertId();
+    //     var_dump($id); // veja se vem algo diferente de 0
+    //     $_SESSION['user_id'] = $id;
+    //     exit;
+    // }
+    
+    // $_SESSION['user_id'] = $pdo->lastInsertId();
+
+    // $_SESSION['user_id'] = [
+    //     'email' => $email,
+    //     'cpf' => $cpf,
+    //     'id' => $pdo->lastInsertId() 
+    // ];
+    
+
     if ($stmt->execute()) {
+        $_SESSION['user_id'] = $pdo->lastInsertId();
         header("Location: " . BASE_URL . "pages-usuario/Tela-home-usuario.php");
         exit;
     } else {
