@@ -47,11 +47,12 @@ session_start();
 if (isset($_SESSION['error'])) {
     $erro = $_SESSION['error'];
     unset($_SESSION['error']);
+    $imgUrl = BASE_URL . "/img/Modal-Error.png";
     echo "<script>
         Swal.fire({
             title: 'Erro!',
             text: '$erro',
-            iconHtml: '<img src=\"../img/Modal-Error.png\" style=\"width:115px;\">',
+            iconHtml: '<img src=\"$imgUrl\" style=\"width:115px;\">',
             background: '#e9f5ee',
             color: '#14532d',
             confirmButtonText: 'OK',
@@ -64,5 +65,6 @@ if (isset($_SESSION['error'])) {
     </script>";
 }
 ?>
+
 </body>
 </html>

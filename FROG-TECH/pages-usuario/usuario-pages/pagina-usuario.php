@@ -76,7 +76,7 @@ $fotoPerfil = !empty($usuario['foto']) ? BASE_URL . "img/Fotos-users/" . $usuari
   <p><strong>Email:</strong> <?= htmlspecialchars($usuario['email']) ?></p>
 </div>
 
-<a class="logout" href="../Controller/logout.php">🔌 Desconectar</a>
+<a class="logout" href="<?php echo BASE_URL; ?>/Controller/logout.php">🔌 Desconectar</a>
 
 </body>
 </html>
