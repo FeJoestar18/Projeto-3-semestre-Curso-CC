@@ -10,6 +10,7 @@ include_once('../../Controller/Conect/config-url.php');
     <title>Cadastro de Funcionário</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../js/admin-js/buscarCEP.js"></script> 
 </head>
 <body class="container py-4">
 
@@ -88,32 +89,5 @@ include_once('../../Controller/Conect/config-url.php');
 
         <button type="submit" class="btn btn-success">Cadastrar Funcionário</button>
     </form>
-
-    <script>
-        
-        $('#cep').blur(function() {
-            var cep = $(this).val().replace(/\D/g, '');
-
-            if (cep !== '') {
-                var validacep = /^[0-9]{8}$/;
-
-                if (validacep.test(cep)) {
-                    $.getJSON(`https://viacep.com.br/ws/${cep}/json/`, function(data) {
-                        if (!data.erro) {
-                           
-                            $('#rua').val(data.logradouro);
-                            $('#cidade').val(data.localidade);
-                            $('#estado').val(data.uf);
-                        } else {
-                            alert('CEP não encontrado.');
-                        }
-                    });
-                } else {
-                    alert('CEP inválido.');
-                }
-            }
-        });
-    </script>
-
 </body>
 </html>
