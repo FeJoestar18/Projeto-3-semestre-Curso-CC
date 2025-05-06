@@ -1,0 +1,18 @@
+
+body {
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  body.dark-mode {
+    background-color: #121212;
+    color: white;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 20px;
+    cursor: pointer;
+  }
+  
