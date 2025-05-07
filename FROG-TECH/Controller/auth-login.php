@@ -19,7 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($user) {
         if (password_verify($senha, $user['senha'])) {
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_email'] = $user['email']; 
+            $_SESSION['user_email'] = $user['email'];
+            $_SESSION['role_id'] = $user['role_id'];  
 
             switch ($user['role_id']) {
                 case 1:

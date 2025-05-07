@@ -7,5 +7,7 @@
 </head>
 <body>
     <h1>Olá, Mundo!</h1>
+    <a href="../pages-admin/fale-conosco/fale-conosco-adm.php">Fale Conosco</a><br>
+    <a href="../Controller/logout.php" onclick="return confirm('Deseja realmente sair?')">Sair</a>
 </body>
 </html>
