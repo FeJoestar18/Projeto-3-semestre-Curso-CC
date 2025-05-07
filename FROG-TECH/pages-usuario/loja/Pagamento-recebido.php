@@ -41,7 +41,7 @@ include_once('../../Controller/Conect/config-url.php');
     <script>
         setTimeout(function () {
             window.location.href = "<?= BASE_URL ?>pages-usuario/tela-home-usuario.php";
-        }, 3000); // redireciona após 3 segundos
+        }, 3000);
     </script>
 </head>
 <body>

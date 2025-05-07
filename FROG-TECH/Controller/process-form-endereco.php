@@ -1,6 +1,6 @@
 <?php
-// Corrigir caminho do include
-include_once(__DIR__ . '/Conect/config-url.php');  // Verifique se o caminho está correto
+
+include_once(__DIR__ . '/Conect/config-url.php');  
 include(__DIR__ . "/Conect/conecao.php");
 
 session_start();
