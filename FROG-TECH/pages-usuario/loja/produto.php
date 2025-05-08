@@ -35,6 +35,8 @@ if (isset($_GET['id'])) {
               <button type="submit" name="acao" value="comprar">Comprar Agora</button>
           </form>';
           
+
+          
     } else {
         echo "Produto não encontrado.";
     }

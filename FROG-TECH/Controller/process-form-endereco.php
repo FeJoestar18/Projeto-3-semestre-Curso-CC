@@ -1,16 +1,20 @@
 <?php
-
+session_start();
 include_once(__DIR__ . '/Conect/config-url.php');  
 include(__DIR__ . "/Conect/conecao.php");
-
-session_start();
 include(__DIR__ . "/protect.php");
 
 $id = $_SESSION['user_id'] ?? null;
+$produtoId = $_SESSION['produto_id'] ?? null;
 
 if (!$id) {
     header("Location: " . BASE_URL . "pages-usuario/cadastro/login.php");
     exit;
+}
+
+if (empty($produtoId)) {
+    echo "Erro: Produto não selecionado.";
+    exit();
 }
 
 if (isset($_POST['salvar'])) {
@@ -26,4 +30,3 @@ if (isset($_POST['salvar'])) {
     header("Location: " . BASE_URL . "pages-usuario/loja/checkout.php");
     exit;
 }
-?>

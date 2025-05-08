@@ -3,14 +3,25 @@ session_start();
 include(__DIR__ . "/../../Controller/process-checkout.php");
 include(__DIR__ . "/../../Controller/Conect/conecao.php");
 
-$idProduto = $_POST['produto_id'] ?? null;
+$idProduto = $_POST['produto_id'] ?? $_SESSION['produto_id'] ?? null;
 
-
-if (!$idProduto || !is_numeric($idProduto)) {
-    echo "Produto não selecionado.";
+if (!empty($idProduto)) {
+    $_SESSION['produto_id'] = $idProduto;
+} else {
+    echo "Erro: Produto não selecionado.";
     exit;
 }
 
+if (
+    empty($usuario['cep']) ||
+    empty($usuario['rua']) ||
+    empty($usuario['bairro']) ||
+    empty($usuario['cidade']) ||
+    empty($usuario['estado'])
+) {
+    header("Location: " . BASE_URL . "pages-usuario/dados-endereco/form_endereco.php");
+    exit;
+}
 
 $stmtProduto = $pdo->prepare("SELECT nome, preco FROM produtos WHERE id = ?");
 $stmtProduto->execute([$idProduto]);
@@ -20,6 +31,7 @@ if (!$produto) {
     echo "Produto não encontrado.";
     exit;
 }
+
 ?>
 <!DOCTYPE html>
 <html>
