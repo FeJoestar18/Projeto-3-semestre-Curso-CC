@@ -1,13 +1,18 @@
 <?php
-include(__DIR__ . "/../../Controller/Conect/conecao.php");
 session_start();
+include(__DIR__ . "/../../Controller/Conect/conecao.php");
 include(__DIR__ . "/../../Controller/protect.php");
 include_once('../../Controller/Conect/config-url.php');
-// if (isset($_SESSION['user_id'])) {
-//     echo "Usuário logado com ID: " . $_SESSION['user_id'];
-// } else {
-//     echo "Usuário não logado.";
-// }
+include_once(__DIR__ . '/../../Controller/func/exibir-modal-verificar-role_id.php');
+ 
+
+if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 3) {
+    echo "Usuário logado com ID: " . $_SESSION['user_id'];
+} else {
+    $imgUrl = BASE_URL . "/img/Modal-Error.png";
+    exibirModal($imgUrl);  
+    exit;
+}
 
 if (!isset($_SESSION['carrinho'])) {
     $_SESSION['carrinho'] = [];

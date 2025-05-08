@@ -3,12 +3,17 @@ session_start();
 include(__DIR__ . "/../../Controller/Conect/conecao.php");
 include(__DIR__ . "/../../Controller/protect.php");
 include_once('../../Controller/Conect/config-url.php'); 
+include_once(__DIR__ . '/../../Controller/func/exibir-modal-verificar-role_id.php');
+ 
 
-if (isset($_SESSION['user_id'])) {
+if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 3) {
     echo "Usuário logado com ID: " . $_SESSION['user_id'];
 } else {
-    echo "Usuário não logado.";
+    $imgUrl = BASE_URL . "/img/Modal-Error.png";
+    exibirModal($imgUrl);  
+    exit;
 }
+
 if (isset($_GET['id'])) {
     $id = (int) $_GET['id'];
     $query = "SELECT * FROM produtos WHERE id = :id";
