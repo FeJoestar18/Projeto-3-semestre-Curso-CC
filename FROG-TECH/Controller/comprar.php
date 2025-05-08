@@ -1,7 +1,10 @@
 <?php
 
-session_start();
-include('../Controller/Conect/conecao.php');
+ob_start();
+
+include(__DIR__ . '/Conect/conecao.php');
+require_once(__DIR__ . '/Conect/config-url.php');  
+
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../pages-usuario/cadastro/login.php");
@@ -19,7 +22,7 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'comprar') {
     $produto = $stmt->fetch();
 
     if ($produto && $produto['quantidade'] >= $quantidade) {
-       
+        
         $query = "INSERT INTO compras (user_id, produto_id, nome_produto, preco, quantidade) 
                   VALUES (:user_id, :produto_id, :nome_produto, :preco, :quantidade)";
         $stmt = $pdo->prepare($query);
@@ -39,11 +42,13 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'comprar') {
             ':produto_id' => $produto_id
         ]);
 
-        header("Location: ../pages-usuario/checkout.php");
+        header("Location: " . BASE_URL . "pages-usuario/loja/checkout.php");
+
         exit;
     } else {
-        echo "Estoque insuficiente!";
+        echo "<h2 style='color:red;'>Estoque insuficiente!</h2>";
     }
 }
 
+ob_end_flush();
 ?>

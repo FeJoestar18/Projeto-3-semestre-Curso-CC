@@ -2,11 +2,14 @@
 session_start();
 include(__DIR__ . "/../../Controller/process-checkout.php");
 include(__DIR__ . "/../../Controller/Conect/conecao.php");
+include(__DIR__ . "/../../Controller/comprar.php");
 
 $idProduto = $_POST['produto_id'] ?? $_SESSION['produto_id'] ?? null;
+$quantidade = $_POST['quantidade'] ?? $_SESSION['quantidade'] ?? 1;
 
 if (!empty($idProduto)) {
     $_SESSION['produto_id'] = $idProduto;
+    $_SESSION['quantidade'] = $quantidade;
 } else {
     echo "Erro: Produto não selecionado.";
     exit;
@@ -23,6 +26,7 @@ if (
     exit;
 }
 
+// Consulta o produto no banco
 $stmtProduto = $pdo->prepare("SELECT nome, preco FROM produtos WHERE id = ?");
 $stmtProduto->execute([$idProduto]);
 $produto = $stmtProduto->fetch(PDO::FETCH_ASSOC);
@@ -32,6 +36,7 @@ if (!$produto) {
     exit;
 }
 
+$quantidade = $_POST['quantidade'] ?? 1; /
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,26 +57,27 @@ if (!$produto) {
     <h2>Checkout - FrogTech</h2>
 
     <h3><?= htmlspecialchars($produto['nome']) ?></h3>
-    <p>Preço: R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
 
+    <p>Preço Unitário: R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
+    <p>Quantidade: <?= htmlspecialchars($quantidade) ?></p>
+    <p>Total: R$ <?= number_format($produto['preco'] * $quantidade, 2, ',', '.') ?></p>
     <p class="frete-info">Frete para o CEP <?= htmlspecialchars($usuario['cep']) ?>: R$ <?= number_format($frete, 2, ',', '.') ?></p>
-
     <hr>
-
     <p><strong>Endereço de entrega:</strong><br>
         <?= htmlspecialchars("{$usuario['rua']}, {$usuario['bairro']} - {$usuario['cidade']}/{$usuario['estado']} - CEP {$usuario['cep']}") ?>
     </p>
 
     <hr>
-    <h3>Total: R$
+    <h3>Total Final (com frete): R$
         <?php
-        $total = $produto['preco'] + $frete;
+        $total = ($produto['preco'] * $quantidade) + $frete; 
         echo number_format($total, 2, ',', '.');
         ?>
     </h3>
 
     <form action="<?= BASE_URL ?>pages-usuario/loja/Pagamento-recebido.php" method="post">
         <input type="hidden" name="produto_id" value="<?= $idProduto ?>">
+        <input type="hidden" name="quantidade" value="<?= $quantidade ?>"> 
         <input type="hidden" name="valor_total" value="<?= $total ?>">
         <button type="submit">PAGAR</button>
     </form>
