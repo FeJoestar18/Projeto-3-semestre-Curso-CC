@@ -22,7 +22,7 @@ debug_log("SESSION atual: " . print_r($_SESSION, true));
 
 // ------------------------------------------------------------------------
 if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 3) {
-    echo "Usuário logado com ID: " . $_SESSION['user_id'];
+    // echo "Usuário logado com ID: " . $_SESSION['user_id'] . " e role_id: " . $_SESSION['role_id'];
 } else {
     $imgUrl = BASE_URL . "/img/Modal-Error.png";
     exibirModal($imgUrl);  

@@ -22,7 +22,6 @@ include_once('../../Controller/checkout-backend.php');
     <h2>Checkout - FrogTech</h2>
 
     <h3><?= htmlspecialchars($produto['nome']) ?></h3>
-
     <p>Preço Unitário: R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
     <p>Quantidade: <?= htmlspecialchars($quantidade) ?></p>
     <p>Total: R$ <?= number_format($produto['preco'] * $quantidade, 2, ',', '.') ?></p>
