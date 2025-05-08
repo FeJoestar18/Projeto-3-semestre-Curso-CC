@@ -1,0 +1,31 @@
+[2025-05-08 19:15:47] POST recebido: Array
+(
+    [produto_id] => 18
+    [quantidade] => 10
+    [acao] => comprar
+)
+
+[2025-05-08 19:15:47] SESSION atual: Array
+(
+    [user_id] => 1
+    [user_email] => teste2@mailna.co
+    [role_id] => 3
+    [frete] => 37739.71
+    [produto_id] => 18
+    [quantidade] => 10
+)
+
+[2025-05-08 19:15:47] Redirecionando para checkout com produto ID: 18 e quantidade: 10
+[2025-05-08 19:15:47] Iniciando processo de compra - Produto ID: 18, Quantidade: 10, Usuário ID: 1
+[2025-05-08 19:15:47] Produto encontrado: Array
+(
+    [id] => 18
+    [nome] => Daniel Alves
+    [preco] => 222.00
+    [descricao] => 222
+    [quantidade] => 1093
+    [imagem] => 681cc4898802f.png
+)
+
+[2025-05-08 19:15:47] Compra registrada com sucesso no banco de dados.
+[2025-05-08 19:15:47] Estoque atualizado com sucesso. Novo estoque: 1083
