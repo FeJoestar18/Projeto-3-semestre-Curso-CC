@@ -3,6 +3,7 @@ session_start();
 include(__DIR__ . "/../../Controller/Conect/conecao.php");
 include(__DIR__ . "/../../Controller/protect.php");
 include_once('../../Controller/Conect/config-url.php'); 
+
 if (isset($_SESSION['user_id'])) {
     echo "Usuário logado com ID: " . $_SESSION['user_id'];
 } else {

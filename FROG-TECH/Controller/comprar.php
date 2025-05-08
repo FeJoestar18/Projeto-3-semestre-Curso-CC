@@ -1,10 +1,24 @@
 <?php
 session_start();
 ob_start();
-
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
 include(__DIR__ . '/Conect/conecao.php');
 require_once(__DIR__ . '/Conect/config-url.php');  
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['produto_id'], $_POST['quantidade'])) {
+    
+    $produtoId = (int) $_POST['produto_id'];
+    $quantidade = max(1, (int) $_POST['quantidade']); 
+    $_SESSION['produto_id'] = $produtoId;
+    $_SESSION['quantidade'] = $quantidade;
+
+    header("Location: " . BASE_URL . "pages-usuario/loja/checkout.php");
+    exit;
+} else {
+    echo "Dados do produto não enviados corretamente.";
+}
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../pages-usuario/cadastro/login.php");

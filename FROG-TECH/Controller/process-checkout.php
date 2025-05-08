@@ -26,37 +26,4 @@ if (
     exit;
 }
 
-function calcularFrete($cepDestino, $estadoDestino) {
-   
-    $cepBase = '01000000';
-    
-    $cepDestino = preg_replace('/[^0-9]/', '', $cepDestino);
-    $cepBase = preg_replace('/[^0-9]/', '', $cepBase);
-    
-    $distancia = abs((int)$cepDestino - (int)$cepBase);
-    
-    $distanciaKm = $distancia / 1000;
-    
-    $freteBase = 15.00;
-    
-    $frete = $freteBase + ($distanciaKm * 0.5);  
-    $estadosSP = ['SP'];
-    if (!in_array($estadoDestino, $estadosSP)) {
-        $frete *= 1.02; 
-        
-    }
 
-    if ($frete > 1000000) {
-        $frete = 1000000;
-    }
-
-    return round($frete, 2);  
-}
-
-
-$frete = 0;
-if ($usuario['cep']) {
-    $estadoDestino = $usuario['estado']; 
-    $frete = calcularFrete($usuario['cep'], $estadoDestino);
-    $_SESSION['frete'] = $frete;
-}

@@ -4,9 +4,36 @@ ob_start();
 include(__DIR__ . "/../../Controller/process-checkout.php");
 include(__DIR__ . "/../../Controller/Conect/conecao.php");
 
+function calcularFrete($cep) {
+   
+    $uf = substr($cep, 0, 2); 
+    $frete = 0;
 
-$idProduto = $_POST['produto_id'] ?? $_SESSION['produto_id'] ?? null;
-$quantidade = $_POST['quantidade'] ?? $_SESSION['quantidade'] ?? 1;
+    if (in_array($uf, ['69', '70', '71', '72', '73'])) { 
+        $frete = 30.00;
+    }
+    elseif (in_array($uf, ['56', '57', '58', '59'])) { 
+        $frete = 20.00;
+    }
+    elseif (in_array($uf, ['75', '76', '77'])) { 
+        $frete = 25.00;
+    }
+    elseif (in_array($uf, ['35', '36', '37', '38', '39'])) { 
+        $frete = 15.00;
+    }
+    elseif (in_array($uf, ['41', '42', '43', '44', '45'])) { 
+        $frete = 10.00;
+    } else {
+        
+        $frete = 35.00;
+    }
+
+    return $frete;
+}
+
+$idProduto = $_POST['produto_id'] ?? $_GET['produto_id'] ?? $_SESSION['produto_id'] ?? null;
+$quantidade = $_POST['quantidade'] ?? $_GET['quantidade'] ?? $_SESSION['quantidade'] ?? 1;
+
 
 if (!empty($idProduto)) {
     $_SESSION['produto_id'] = $idProduto;
@@ -27,6 +54,8 @@ if (
     exit;
 }
 
+$frete = calcularFrete($usuario['cep']);
+
 $stmtProduto = $pdo->prepare("SELECT nome, preco FROM produtos WHERE id = ?");
 $stmtProduto->execute([$idProduto]);
 $produto = $stmtProduto->fetch(PDO::FETCH_ASSOC);
@@ -35,8 +64,7 @@ if (!$produto) {
     echo "Produto não encontrado.";
     exit;
 }
-
-$quantidade = $_POST['quantidade'] ?? 1;
+$quantidade = $_POST['quantidade'] ?? $_SESSION['quantidade'] ?? 1;
 ?>
 <!DOCTYPE html>
 <html>
