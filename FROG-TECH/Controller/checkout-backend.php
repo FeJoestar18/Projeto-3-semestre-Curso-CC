@@ -91,5 +91,6 @@ if (!$produto) {
     echo "Produto não encontrado.";
     exit;
 }
+
 $quantidade = $_POST['quantidade'] ?? $_SESSION['quantidade'] ?? 1;
 ?>
