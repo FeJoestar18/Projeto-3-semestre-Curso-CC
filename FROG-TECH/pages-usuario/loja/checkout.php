@@ -1,8 +1,9 @@
 <?php
 session_start();
+ob_start();
 include(__DIR__ . "/../../Controller/process-checkout.php");
 include(__DIR__ . "/../../Controller/Conect/conecao.php");
-include(__DIR__ . "/../../Controller/comprar.php");
+
 
 $idProduto = $_POST['produto_id'] ?? $_SESSION['produto_id'] ?? null;
 $quantidade = $_POST['quantidade'] ?? $_SESSION['quantidade'] ?? 1;
@@ -26,7 +27,6 @@ if (
     exit;
 }
 
-// Consulta o produto no banco
 $stmtProduto = $pdo->prepare("SELECT nome, preco FROM produtos WHERE id = ?");
 $stmtProduto->execute([$idProduto]);
 $produto = $stmtProduto->fetch(PDO::FETCH_ASSOC);
@@ -85,3 +85,7 @@ $quantidade = $_POST['quantidade'] ?? 1;
 
 </body>
 </html>
+
+<?php   
+ob_end_flush();
+?>

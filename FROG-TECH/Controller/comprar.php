@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 ob_start();
 
 include(__DIR__ . '/Conect/conecao.php');
