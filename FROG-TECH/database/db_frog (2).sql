@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 03/05/2025 às 03:40
+-- Tempo de geração: 08/05/2025 às 12:33
 -- Versão do servidor: 8.3.0
 -- Versão do PHP: 8.2.18
 
@@ -109,15 +109,15 @@ CREATE TABLE IF NOT EXISTS `funcionarios` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `cpf` (`cpf`),
   KEY `fk_departamento` (`departamento_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `funcionarios`
 --
 
 INSERT INTO `funcionarios` (`id`, `nome`, `email`, `idade`, `salario`, `cep`, `cidade`, `rua`, `telefone`, `estado`, `numero`, `role_id`, `cpf`, `departamento_id`, `senha`) VALUES
-(1, '[value-2]', '[value-3]', 0, 0.00, '[value-7]', '[value-8]', '[value-9]', '[value-10]', '[value-11]', '[value-12]', 2, '56565735833', 1, ''),
-(2, 'João da Silva', 'joao@email.com', 30, 4500.00, '12345-678', 'São Paulo', 'Rua das Flores', '11999998888', 'SP', '123', 2, '12345678901', 1, 'Teste@123');
+(2, 'João da Silvoooo', 'joao@email.com', 30, 4500.00, '12345-678', 'São Paulo', 'Rua das Flores', '11999998888', 'SP', '123', 2, '12345678901', 1, 'Teste@123'),
+(3, 'Cláudio Sebastião Figueiredo', 'claudio-figueiredo73@newpark.com', 20, 10000.00, '74969-436', 'Aparecida de Goiânia', 'Rua das Hosanas', '(69) 3821-0172', 'GO', '10', 2, '532.756.836-91', 1, '$2y$10$xefljQv9bodICvc5gh6pTu0ZwIIz5Jv9YqbgXCCcvismWHqv6NNOa');
 
 -- --------------------------------------------------------
 
@@ -146,6 +146,33 @@ INSERT INTO `produtos` (`id`, `nome`, `preco`, `descricao`, `quantidade`, `image
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `questions`
+--
+
+DROP TABLE IF EXISTS `questions`;
+CREATE TABLE IF NOT EXISTS `questions` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `question` text NOT NULL,
+  `answer` text,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela `questions`
+--
+
+INSERT INTO `questions` (`id`, `user_id`, `question`, `answer`, `created_at`) VALUES
+(1, 1, 'Teste', 'teste', '2025-05-07 18:07:33'),
+(2, 1, 'Teste', 'teste', '2025-05-07 18:08:23'),
+(3, 1, 'teste', 'oiiii', '2025-05-07 18:44:39'),
+(4, 1, 'OIIIII ADMMM', 'oiii', '2025-05-07 18:44:59');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `usuarios`
 --
 
@@ -168,15 +195,25 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   UNIQUE KEY `cpf` (`cpf`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `telefone` (`telefone`)
-) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `email`, `senha`, `cpf`, `telefone`, `token_recuperacao`, `token_expira`, `role_id`, `cep`, `rua`, `bairro`, `cidade`, `estado`) VALUES
-(32, 'Teste77@gmail.com', '$2y$10$G3HEmJ80emW/1HkUVbJCIuaLoH0GX6RRwF2BhQHCvrXXk0vRM3HDe', '15799945045', '12345678912', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL),
-(31, 'Teste777@gmail.com', '$2y$10$h0gG7mz/IhFSsqSAHVpwjOjXQCQzk3ZKyKiTjdBK3Zr8PoweHCDcG', '15799945041', '12345678911', NULL, NULL, 3, '01020-040', 'Rua Lousada', 'Sé', 'São Paulo', 'SP');
+(1, 'teste2@mailna.co', '$2y$10$8eDOqs94HEgJvm/EklyhvOqd68h2DZS0oI2.Rh3UKcHNN67VdpXEq', '15799945041', '12345678911', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL),
+(2, 'teste20@mailna.co', '$2y$10$cD2dWKtLD5wS0Gx4C9l07.Vrh8//ASFmfzIhrU1xTRcrL38mF1uky', '12345678911', '12345678912', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL);
+
+--
+-- Restrições para tabelas despejadas
+--
+
+--
+-- Restrições para tabelas `questions`
+--
+ALTER TABLE `questions`
+  ADD CONSTRAINT `questions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

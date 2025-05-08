@@ -1,7 +1,9 @@
 <?php
-include(__DIR__ . "/../../Controller/Conect/conecao.php");
 session_start();
+include(__DIR__ . "/../../Controller/Conect/conecao.php");
 include(__DIR__ . "/../../Controller/protect.php");
+include_once('../../Controller/Conect/config-url.php');
+
 // if (isset($_SESSION['user_id'])) {
 //     echo "Usuário logado com ID: " . $_SESSION['user_id'];
 // } else {
@@ -14,6 +16,14 @@ $produtos = $stmt->fetchAll();
 
 foreach ($produtos as $produto) {
     echo "<div class='produto'>";
+    
+    
+    if (!empty($produto['imagem'])) {
+        echo "<img src='" . BASE_URL . htmlspecialchars($produto['imagem']) . "' alt='" . htmlspecialchars($produto['nome']) . "' width='100' height='100'>";
+    } else {
+        echo "<img src='" . BASE_URL . "uploads/default.png' alt='Imagem não disponível' width='100' height='100'>";
+    }
+    
     echo "<h3>" . htmlspecialchars($produto['nome']) . "</h3>";
     echo "<p>" . htmlspecialchars($produto['descricao']) . "</p>";
     echo "<p>Preço: R$" . number_format($produto['preco'], 2, ',', '.') . "</p>";

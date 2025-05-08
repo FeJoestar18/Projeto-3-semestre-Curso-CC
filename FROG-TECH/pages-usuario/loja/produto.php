@@ -1,6 +1,6 @@
 <?php
-include(__DIR__ . "/../../Controller/Conect/conecao.php");
 session_start();
+include(__DIR__ . "/../../Controller/Conect/conecao.php");
 include(__DIR__ . "/../../Controller/protect.php");
 include_once('../../Controller/Conect/config-url.php'); 
 
@@ -12,8 +12,13 @@ if (isset($_GET['id'])) {
     $produto = $stmt->fetch();
 
     if ($produto) {
+        
         echo "<h1>" . htmlspecialchars($produto['nome']) . "</h1>";
-        echo "<img src='" . htmlspecialchars($produto['imagem']) . "' alt='Imagem do produto' width='300' />";
+        if (!empty($produto['imagem'])) {
+            echo "<img src='" . BASE_URL . htmlspecialchars($produto['imagem']) . "' alt='" . htmlspecialchars($produto['nome']) . "' width='100' height='100'>";
+        } else {
+            echo "<img src='" . BASE_URL . "uploads/default.png' alt='Imagem não disponível' width='100' height='100'>";
+        }
         echo "<p>" . htmlspecialchars($produto['descricao']) . "</p>";
         echo "<p>Preço: R$" . number_format($produto['preco'], 2, ',', '.') . "</p>";
         echo "<p>Quantidade disponível: " . $produto['quantidade'] . "</p>";
