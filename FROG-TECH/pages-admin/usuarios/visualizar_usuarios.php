@@ -40,6 +40,7 @@ $stmt = $pdo->query($query);
                 <th>CPF</th>
                 <th>Role ID</th>
                 <th>Ações</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>

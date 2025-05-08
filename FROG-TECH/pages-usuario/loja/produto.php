@@ -15,7 +15,7 @@ if (isset($_GET['id'])) {
         
         echo "<h1>" . htmlspecialchars($produto['nome']) . "</h1>";
         if (!empty($produto['imagem'])) {
-            echo "<img src='" . BASE_URL . htmlspecialchars($produto['imagem']) . "' alt='" . htmlspecialchars($produto['nome']) . "' width='100' height='100'>";
+            echo "<img src='" . BASE_URL . "uploads-files-produtos/" . htmlspecialchars($produto['imagem']) . "' alt='" . htmlspecialchars($produto['nome']) . "' width='100' height='100'>";
         } else {
             echo "<img src='" . BASE_URL . "uploads/default.png' alt='Imagem não disponível' width='100' height='100'>";
         }

@@ -13,51 +13,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $pastaDestino = __DIR__ . '/../../uploads-files-produtos/'; 
 
-if (!is_dir($pastaDestino)) {
-    if (mkdir($pastaDestino, 0777, true)) {
-        error_log("Diretório criado com sucesso: $pastaDestino");
-    } else {
-        error_log("Falha ao criar o diretório: $pastaDestino");
-        echo "Erro ao criar diretório.";
-        exit();
-    }
-}
-
-$imagem = null;
-if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
-
-    error_log("Código de erro do arquivo: " . $_FILES['imagem']['error']);
-
-    $tamanhoMaximo = 5 * 1024 * 1024; 
-    $tamanhoArquivo = $_FILES['imagem']['size'];
-
-    error_log("Tamanho do arquivo: " . $tamanhoArquivo . " bytes");
-
-    if ($tamanhoArquivo > $tamanhoMaximo) {
-        error_log("Erro: Arquivo muito grande. Tamanho máximo permitido: " . $tamanhoMaximo . " bytes.");
-        echo "Erro: O arquivo é muito grande. O tamanho máximo permitido é 5MB.";
-        exit();
+    if (!is_dir($pastaDestino)) {
+        if (mkdir($pastaDestino, 0777, true)) {
+            error_log("Diretório criado com sucesso: $pastaDestino");
+        } else {
+            error_log("Falha ao criar o diretório: $pastaDestino");
+            echo "Erro ao criar diretório.";
+            exit();
+        }
     }
 
-    $extensao = strtolower(pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION));
-    $nomeImagem = uniqid() . '.' . $extensao;
-    $caminhoImagem = $pastaDestino . $nomeImagem;
+    $imagem = null;
+    if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
+        $tamanhoMaximo = 10 * 1024 * 1024;  
+        $tamanhoArquivo = $_FILES['imagem']['size'];
 
-    error_log("Tentando mover o arquivo para: $caminhoImagem");
+        if ($tamanhoArquivo > $tamanhoMaximo) {
+            echo "Erro: O arquivo é muito grande. O tamanho máximo permitido é 5MB.";
+            exit();
+        }
 
-    if (move_uploaded_file($_FILES['imagem']['tmp_name'], $caminhoImagem)) {
-        $imagem = 'uploads/' . $nomeImagem; 
-        error_log("Imagem carregada com sucesso: $imagem");
-    } else {
-        error_log("Erro ao mover o arquivo para o diretório: $caminhoImagem");
-        echo "Erro ao fazer upload da imagem.";
-        exit();
+        $extensao = strtolower(pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION));
+        $nomeImagem = uniqid() . '.' . $extensao;
+        $caminhoImagem = $pastaDestino . $nomeImagem;
+
+        if (move_uploaded_file($_FILES['imagem']['tmp_name'], $caminhoImagem)) {
+            $imagem = $nomeImagem;  
+        } else {
+            echo "Erro ao fazer upload da imagem.";
+            exit();
+        }
     }
-} else {
-    error_log("Erro ao enviar a imagem. Código de erro: " . $_FILES['imagem']['error']);
-    echo "Erro ao enviar a imagem.";
-    exit();
-}
 
     $sql = "INSERT INTO produtos (nome, preco, descricao, quantidade, imagem) VALUES (:nome, :preco, :descricao, :quantidade, :imagem)";
     $stmt = $pdo->prepare($sql);
