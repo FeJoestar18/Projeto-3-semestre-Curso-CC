@@ -36,7 +36,7 @@ if (!$produto) {
     exit;
 }
 
-$quantidade = $_POST['quantidade'] ?? 1; /
+$quantidade = $_POST['quantidade'] ?? 1;
 ?>
 <!DOCTYPE html>
 <html>
