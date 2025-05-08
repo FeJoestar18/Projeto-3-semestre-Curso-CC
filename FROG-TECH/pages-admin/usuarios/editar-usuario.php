@@ -1,8 +1,18 @@
 <?php
 
+session_start();
 include(__DIR__ . "/../../Controller/Conect/conecao.php");
 include_once(__DIR__ . '/../../Controller/Conect/config-url.php');
 include(__DIR__ . '/../../Controller/admin/editar-usuario-process.php');
+include_once(__DIR__ . '/../../Controller/func/exibir-modal-verificar-role_id.php');
+
+if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 1) {
+    echo "Usuário logado com ID: " . $_SESSION['user_id'];
+} else {
+    $imgUrl = BASE_URL . "/img/Modal-Error.png";
+    exibirModal($imgUrl);  
+    exit;
+}
 
 $id = $_GET['id'];
 
