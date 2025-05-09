@@ -2,7 +2,7 @@
 session_start();
 include_once('Conect/config-url.php');
 include('../Controller/Conect/conecao.php');
-include ('../Controller/regex/Register-regex.php');
+include('../Controller/regex/Register-regex.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
@@ -24,34 +24,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO usuarios (email, senha, cpf, telefone) VALUES (:email, :senha, :cpf, :telefone)";
+    $sql = "INSERT INTO usuarios (email, senha, cpf, telefone, role_id) VALUES (:email, :senha, :cpf, :telefone, :role_id)";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':senha', $senhaHash);
     $stmt->bindParam(':cpf', $cpf);
     $stmt->bindParam(':telefone', $telefone);
-
-
-    // Script para testar se o id está vindo diferente de 0
-    
-    // if ($stmt->execute()) {
-    //     $id = $pdo->lastInsertId();
-    //     var_dump($id); // veja se vem algo diferente de 0
-    //     $_SESSION['user_id'] = $id;
-    //     exit;
-    // }
-    
-    // $_SESSION['user_id'] = $pdo->lastInsertId();
-
-    // $_SESSION['user_id'] = [
-    //     'email' => $email,
-    //     'cpf' => $cpf,
-    //     'id' => $pdo->lastInsertId() 
-    // ];
-    
+    $stmt->bindValue(':role_id', 3);
 
     if ($stmt->execute()) {
         $_SESSION['user_id'] = $pdo->lastInsertId();
+        $_SESSION['role_id'] = 3; 
         header("Location: " . BASE_URL . "pages-usuario/Tela-home-usuario.php");
         exit;
     } else {
@@ -59,6 +42,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: " . BASE_URL . "pages-usuario/cadastro/registro.php");
         exit;
     }
-    
 }
 ?>
