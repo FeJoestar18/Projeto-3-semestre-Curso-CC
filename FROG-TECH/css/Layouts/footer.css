@@ -1,0 +1,14 @@
+footer {
+    position: fixed;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    z-index: 1000;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 1rem;
+}

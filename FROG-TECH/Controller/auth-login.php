@@ -3,7 +3,6 @@
 include_once('Conect/config-url.php');
 include ('../Controller/regex/Login-regex.php');
 include('../Controller/Conect/conecao.php'); 
-session_start(); 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $cpf = $_POST['cpf'];
@@ -36,12 +35,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     echo "Função de usuário inválida.";
                     break;
             }
-            exit; 
+            exit;
         } else {
-            echo "Senha incorreta!";
+            if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/', $senha)) {
+                $_SESSION['error'] = "Senha inválida.";
+            } else {
+                $_SESSION['error'] = "Senha incorreta!";
+            }
+            header("Location: " . BASE_URL . "pages-usuario/cadastro/login.php");
+            exit;
         }
-    } else {
-        echo "Usuário não encontrado!";
     }
+} else {
+    $_SESSION['error'] = "Usuário não encontrado!";
+    header("Location: " . BASE_URL . "pages-usuario/cadastro/login.php");
+    exit;
 }
 ?>

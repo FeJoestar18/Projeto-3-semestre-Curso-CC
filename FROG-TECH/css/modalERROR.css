@@ -1,0 +1,10 @@
+
+.swal2-custom-popup {
+  border-radius: 15px;
+  font-family: 'Arial', sans-serif;
+}
+
+.swal2-custom-title {
+  font-size: 22px;
+  font-weight: bold;
+}
