@@ -13,8 +13,6 @@ include_once('../../Controller/Conect/config-url.php');
     <link rel="stylesheet" href="<?= BASE_URL ?>css/modalERROR.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>css/css-usuarios/cadastro.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    
-   
 </head>
 <body>
     <div class ="back-button-container">
@@ -27,21 +25,21 @@ include_once('../../Controller/Conect/config-url.php');
     </div>
 
     <header class="header">
-    <img src="<?= BASE_URL ?>img/logo/Logo-header.png" alt="FrogTech Logo" class="logo">
-</header>
+        <img src="<?= BASE_URL ?>img/logo/Logo-header.png" alt="FrogTech Logo" class="logo">
+    </header>
  
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="register-container">
         <div class="register-form">
             <h2>cadastre-se</h2>
-            <form action="<?= BASE_URL ?>Controller/auth-register.php" method="POST">
-                <input type="email" name="email" placeholder="E-mail" required>
-                <input type="text" id="cpf" name="cpf" placeholder="CPF" required>
-                <div class="password-wrapper">
-                    <input type="password" name="senha" id="senha" placeholder="Senha" required>
-                    <span class="toggle-password" onclick="togglePassword('senha', this)">👁️</span>
-                </div>
-                <input type="text" name="telefone" placeholder="Telefone" required>
+                <form action="<?= BASE_URL ?>Controller/auth-register.php" method="POST">
+                    <input type="email" name="email" placeholder="E-mail" required>
+                    <input type="text" id="cpf" name="cpf" placeholder="CPF" required>
+                        <div class="password-wrapper">
+                            <input type="password" name="senha" id="senha" placeholder="Senha" required>
+                            <span class="toggle-password" onclick="togglePassword('senha', this)">👁️</span>
+                        </div>
+                    <input type="text" name="telefone" placeholder="Telefone" required>
                 <button type="submit">Cadastrar-se</button>
             </form>
         </div>
