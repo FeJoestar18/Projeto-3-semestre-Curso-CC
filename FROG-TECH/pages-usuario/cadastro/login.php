@@ -14,7 +14,7 @@ include_once('../../Controller/Conect/config-url.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>css/modalERROR.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/css-usuarios/login.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/css-usuarios/pageLogin.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
 <body>
@@ -27,9 +27,9 @@ include_once('../../Controller/Conect/config-url.php');
          </a>
     </div>
 
-    <header class="header">
-        <img src="<?= BASE_URL ?>img/logo/Logo-header.png" alt="FrogTech Logo" class="logo">
-    </header>
+        <header class="header">
+            <img src="<?= BASE_URL ?>img/logo/Logo-Frog-v1.png" alt="FrogTech Logo" class="logo">
+        </header>
 
     <div class="d-flex justify-content-center align-items-center vh-100">
         <div class="login-container">
@@ -48,6 +48,19 @@ include_once('../../Controller/Conect/config-url.php');
             </div>
         </div>
     </div>
+
+     <script>
+        function togglePassword(id, el) {
+            const input = document.getElementById(id);
+            if (input.type === "password") {
+                input.type = "text";
+                el.textContent = "🐸";
+            } else {
+                input.type = "password";
+                el.textContent = "👁️";
+            }
+        }
+    </script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <?php

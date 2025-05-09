@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #fafafa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.titulo {
+margin-top: 65px; 
+text-align: center;
+padding: 20px;
+padding-bottom: 0px;
+}
+
+.titulo h1 {
+    color: #333;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.titulo h3 {
+    margin-top: 10px;
+    color: #666;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+
+
+
+
+
