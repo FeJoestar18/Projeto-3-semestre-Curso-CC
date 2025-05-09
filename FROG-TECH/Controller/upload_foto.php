@@ -6,7 +6,7 @@ include_once('../Controller/Conect/config-url.php');
 $user_id = $_SESSION['user_id'];
 
 if (isset($_FILES['foto']) && $_FILES['foto']['error'] === 0) {
-    $pasta = '../../FROG-TECH/img/Fotos-users/';
+    $pasta = '../../public_html/img/Fotos-users/';
     $nomeOriginal = $_FILES['foto']['name'];
     $extensao = strtolower(pathinfo($nomeOriginal, PATHINFO_EXTENSION));
     $nomeFinal = uniqid() . '.' . $extensao;

@@ -1,3 +1,3 @@
 <?php
-define('BASE_URL', 'http://localhost/Projeto-3-semestre-Curso-CC/FROG-TECH/');
+define('BASE_URL', 'https://www.frog-tech.shop/');
 ?>

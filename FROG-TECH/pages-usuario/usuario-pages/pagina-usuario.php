@@ -25,7 +25,7 @@ if (!$usuario) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['foto'])) {
-    $diretorioDestino = 'FROG-TECH/img/Fotos-users/';
+    $diretorioDestino = 'public_html/img/Fotos-users/';
     $nomeFoto = $_FILES['foto']['name'];
     $caminhoDestino = $diretorioDestino . basename($nomeFoto);
 

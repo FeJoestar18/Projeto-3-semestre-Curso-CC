@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $pdo->prepare("UPDATE usuarios SET token_recuperacao = ?, token_expira = ? WHERE id = ?");
         $stmt->execute([$token, $expira, $user['id']]);
 
-        $link = "http://localhost/Projeto-3-semestre-Curso-CC/FROG-TECH/Pages/nova_senha.php?token=$token";
+        $link = "https://www.frog-tech.shop/pages-usuario/usuario-pages/nova_senha.php?token=$token";
 
         echo "<h3>Link de redefinição de senha:</h3>";
         echo "<a href='$link'>$link</a><br><br>";
