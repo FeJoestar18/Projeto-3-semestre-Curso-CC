@@ -1,14 +1,30 @@
 <?php
 session_start();
-include_once(__DIR__ . '../Conect/conecao.php');
-include_once(__DIR__ . '../Conect/config-url.php');
+include_once(__DIR__ . '/../Conect/conecao.php');
+include_once(__DIR__ . '/../Conect/config-url.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-   
+    $departamento_id = $_POST['departamento'];
+
+    if (empty($departamento_id)) {
+        $_SESSION['error'] = "Departamento não selecionado.";
+        header("Location: " . BASE_URL . "pages-admin/Funcionario/lista-funcionarios.php");
+        exit;
+    }
+
     $pdo->beginTransaction();
 
     try {
-       
+        $stmtCheckDept = $pdo->prepare("SELECT id FROM departamentos WHERE id = :departamento_id");
+        $stmtCheckDept->execute([':departamento_id' => $departamento_id]);
+        $departamento = $stmtCheckDept->fetch();
+
+        if (!$departamento) {
+            $_SESSION['error'] = "Departamento inválido.";
+            header("Location: " . BASE_URL . "pages-admin/Funcionario/lista-funcionarios.php");
+            exit;
+        }
+
         $stmt = $pdo->prepare("INSERT INTO funcionarios (nome, email, idade, salario, cep, cidade, rua, telefone, estado, numero, role_id, cpf, departamento_id, senha) VALUES (:nome, :email, :idade, :salario, :cep, :cidade, :rua, :telefone, :estado, :numero, :role_id, :cpf, :departamento_id, :senha)");
 
         $senhaHash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
@@ -26,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':numero' => $_POST['numero'],
             ':role_id' => 2,  
             ':cpf' => $_POST['cpf'],
-            ':departamento_id' => $_POST['departamento_id'],
+            ':departamento_id' => $departamento_id, 
             ':senha' => $senhaHash
         ]);
 
@@ -47,9 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
 
     } catch (Exception $e) {
-        
         $pdo->rollBack();
-        
+
         $_SESSION['error'] = "Erro ao cadastrar funcionário: " . $e->getMessage();
         header("Location: " . BASE_URL . "pages-admin/Funcionario/lista-funcionarios.php");
         exit;

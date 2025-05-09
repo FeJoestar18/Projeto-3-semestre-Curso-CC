@@ -1,8 +1,10 @@
 <?php 
 
 session_start();
-include_once('../../Controller/Conect/config-url.php'); 
-include_once(__DIR__ . '/../../Controller/func/exibir-modal-verificar-role_id.php');
+require_once(__DIR__ . '/../../Controller/Conect/conecao.php');
+require_once(__DIR__ . '/../../Controller/Conect/config-url.php');
+require_once(__DIR__ . '/../../Controller/func/exibir-modal-verificar-role_id.php');
+
 
 if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 1) {
     // echo "Usuário logado com ID: " . $_SESSION['user_id'];
@@ -11,6 +13,12 @@ if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 1) {
     exibirModal($imgUrl);  
     exit;
 }
+
+$sql = "SELECT id, nome FROM departamentos";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$departamentos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,7 +27,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 1) {
     <title>Cadastro de Funcionário</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../js/admin-js/buscarCEP.js"></script> 
+    <script src="<?php echo BASE_URL; ?>js/buscarCEP.js"></script> 
 </head>
 <body class="container py-4">
 
@@ -46,29 +54,38 @@ if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 1) {
             <input type="text" name="salario" id="salario" class="form-control">
         </div>
 
-        <div class="mb-3">
+            <div class="mb-3">
             <label for="cep" class="form-label">CEP:</label>
-            <input type="text" name="cep" id="cep" class="form-control" maxlength="9" required>
+            <input type="text" name="cep" placeholder="CEP" required id="cep" 
+            class="form-control">
         </div>
 
         <div class="mb-3">
             <label for="rua" class="form-label">Rua:</label>
-            <input type="text" name="rua" id="rua" class="form-control">
+            <input type="text" name="rua" placeholder="Rua" required 
+            class="form-control"><br>
         </div>
 
         <div class="mb-3">
             <label for="cidade" class="form-label">Cidade:</label>
-            <input type="text" name="cidade" id="cidade" class="form-control">
+            <input type="text" name="cidade" placeholder="Cidade" required 
+            class="form-control"><br>
+        </div>
+
+        <div class="mb-3">
+            <label for="bairro" class="form-label">Bairro:</label>
+            <input type="text" name="bairro" placeholder="Bairro" required 
+            class="form-control"><br>
         </div>
 
         <div class="mb-3">
             <label for="estado" class="form-label">Estado:</label>
-            <input type="text" name="estado" id="estado" class="form-control">
+            <input type="text" name="estado" placeholder="Estado (UF)" required class="form-control"><br>
         </div>
 
         <div class="mb-3">
             <label for="numero" class="form-label">Número:</label>
-            <input type="text" name="numero" id="numero" class="form-control">
+            <input type="text" name="numero" placeholder="Número" required class="form-control"><br>
         </div>
 
         <div class="mb-3">
@@ -86,10 +103,15 @@ if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 1) {
             <input type="password" name="senha" id="senha" class="form-control" required>
         </div>
 
-        <div class="mb-3">
-            <label for="departamento_id" class="form-label">Departamento ID:</label>
-            <input type="number" name="departamento_id" id="departamento_id" class="form-control">
-        </div>
+       <div class="mb-3">
+        <label for="departamento" class="form-label">Departamento:</label>
+        <select name="departamento" id="departamento" class="form-select" required>
+            <option value="" disabled selected>Selecione um departamento</option>
+            <?php foreach ($departamentos as $departamento): ?>
+                <option value="<?= $departamento['id']; ?>"><?= $departamento['nome']; ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
 
         <div class="mb-3">
             <label for="role_id" class="form-label">Role ID (padrão 2):</label>
@@ -100,3 +122,15 @@ if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 1) {
     </form>
 </body>
 </html>
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Certifique-se de que o campo 'departamento' foi enviado
+    if (isset($_POST['departamento'])) {
+        $departamento_id = $_POST['departamento']; // valor selecionado
+        // Realize o que for necessário com $departamento_id
+    } else {
+        echo "Departamento não selecionado.";
+    }
+}
+?>
