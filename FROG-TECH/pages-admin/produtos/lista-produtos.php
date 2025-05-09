@@ -57,7 +57,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </td>
                         <td>
                             <a href="<?php echo BASE_URL; ?>pages-admin/produtos/editar-produto.php?id=<?= $produto['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
-                            <a href="<?php echo BASE_URL; ?>pages-admin/produtos/deletar-produto.php?id=<?= $produto['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                            <a href="<?php echo BASE_URL; ?>Controller/admin/deletar-produto.php?id=<?= $produto['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
