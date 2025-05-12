@@ -3,12 +3,14 @@ footer {
     color: black;
     padding: 20px;
     text-align: center;
-    width: 100%;
+    width: 50%;
     bottom: 0;
     z-index: 1000;
+    margin-left: 25%;
 }
 
 .footer-content p {
     margin: 0;
     font-size: 1rem;
+    
 }

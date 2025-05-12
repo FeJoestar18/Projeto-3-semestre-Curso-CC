@@ -11,7 +11,7 @@ include_once('../../Controller/Conect/config-url.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuário</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>css/modalERROR.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/footer.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/rodape.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>css/css-usuarios/pageRegister.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>

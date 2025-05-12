@@ -1,0 +1,30 @@
+.floating-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #fff;
+            padding: 10px 15px;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s;
+        }
+
+        .floating-button:hover::after {
+            content: "Pagina de Ajuda Usuário";
+            position: absolute;
+            bottom: 60px;
+            left: 20px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+
+        .floating-button img {
+            width: 40px;
+        }
