@@ -43,9 +43,9 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['role_id']) && $_SESSION['rol
 
     <div class="sidebar" id="sidebarMenu">
         <ul>
-            <li><a href="../Loja/loja.php">Loja</a></li>
-            <li><a href="../loja/carrinho.php">Carrinho de Compras</a></li>
-            <li><a href="../paginas_cadastros/Perfil.php">Perfil de Usuário</a></li>
+            <li><a href="<?= BASE_URL ?>pages-usuario/loja/loja.php">Loja</a></li>
+            <li><a href="<?= BASE_URL ?>pages-usuario/loja/carrinho.php">Carrinho de Compras</a></li>
+            <li><a href="<?= BASE_URL ?>pages-usuario/usuario-pages/pagina-usuario.php">Perfil de Usuário</a></li>
             <li><a href="<?= BASE_URL ?>Controller/logout.php" class="logout">Sair</a></li>
         </ul>
     </div>
