@@ -57,7 +57,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['role_id']) && $_SESSION['rol
     </div>
 
     <footer>
-        <p>&copy; 2024 Frog Tech. Todos os direitos reservados.</p>
+        <p>&copy; 2025 Frog Tech. Todos os direitos reservados.</p>
     </footer>
 
     <script src="../js/Nav-Bar.js"></script>

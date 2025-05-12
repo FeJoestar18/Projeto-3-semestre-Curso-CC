@@ -14,6 +14,7 @@ include_once('../../Controller/Conect/config-url.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>css/modalERROR.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/footer.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>css/css-usuarios/pageLogin.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
@@ -43,13 +44,16 @@ include_once('../../Controller/Conect/config-url.php');
                                 </div>
                             <button type="submit">Entrar</button>
                         <a href="registro.php">Cadastrar-se agora</a><br>
-                        <a href="recuperar_senha.php" style="color:rgb(255, 0, 0)">Esqueci minha senha</a>
+                        <!-- <a href="recuperar_senha.php" style="color:rgb(255, 0, 0)">Esqueci minha senha</a> -->
                     </form>
             </div>
         </div>
     </div>
+    <footer>
+        <p>&copy; 2025 Frog Tech. Todos os direitos reservados.</p>
+    </footer>
 
-     <script>
+    <script>
         function togglePassword(id, el) {
             const input = document.getElementById(id);
             if (input.type === "password") {
