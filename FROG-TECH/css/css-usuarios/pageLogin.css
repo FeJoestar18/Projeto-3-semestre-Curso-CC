@@ -6,19 +6,6 @@
             margin: 0;
         }
 
-        .login-container {
-            background-color: white;
-            border-radius: 25px;
-            padding: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transform: translateX(-300px);
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-            transition: transform 0.3s ease;
-        }
-
-
         .login-form {
             width: 350px;
         }
@@ -98,14 +85,7 @@
             color: #388e3c;
             text-decoration: underline;
         }
-
-
-        .logo{
-            max-width: 200px;
-            margin-bottom: 600px;
-            margin-left: 300px;
-        }
-
+        
         .password-wrapper {
             position: relative;
             width: 100%;
