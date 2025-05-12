@@ -11,7 +11,7 @@ include_once('../../Controller/Conect/config-url.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuário</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>css/modalERROR.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/rodape.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/rodape-cadastro.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>css/css-usuarios/pageRegister.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
@@ -92,6 +92,42 @@ if (isset($_SESSION['error'])) {
 }
 ?>
 
+<style> 
+.register-container {
+            background-color: white;
+            border-radius: 25px;
+            padding: 30px;
+            display: flex;
+            max-width: 420px;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            transform: translateX(-130px);
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            transition: transform 0.3s ease;
+        }
 
+        .logo{
+            max-width: 200px;
+            margin-bottom: 600px;
+            margin-left: 90%;
+        }
+
+        .back-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d32f2f;
+            border: 2px solid #d32f2f;
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-weight: bold;
+            transition: background-color 0.6s;
+            text-decoration: none;
+            margin-top: 580px;
+             transform: translateX(-320px);
+            
+        }
+        </style>
 </body>
 </html>
