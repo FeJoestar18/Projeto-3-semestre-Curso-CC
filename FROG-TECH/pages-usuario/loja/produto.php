@@ -70,8 +70,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         <h1><?= htmlspecialchars($produto['nome'], ENT_QUOTES, 'UTF-8') ?></h1>
         <img src="<?= BASE_URL ?>uploads-files-produtos/<?= htmlspecialchars($produto['imagem'] ?: 'default.png', ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($produto['nome'], ENT_QUOTES, 'UTF-8') ?>">
         <div class="avaliacoes">
-            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            <span>(20 Avaliações)</span>
         </div>
     </div>
 
