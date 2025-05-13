@@ -40,12 +40,12 @@ $produtos = $stmt->fetchAll();
     <!-- layouts -->
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/barraPesquisaLoja.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/header.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/rodape.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/footer.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/Nav-Bar.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/BotaoPaginaDeAjuda.css">
 
     <!-- css -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/css-usuarios/loja.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/css-usuarios/lojaUser.css">
 </head>
 <body>
 
@@ -89,7 +89,7 @@ $produtos = $stmt->fetchAll();
                 <h3><?= htmlspecialchars($produto['nome']) ?></h3>
                 <p><?= htmlspecialchars($produto['descricao']) ?></p>
                 <p>Preço: R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
-                <p>Quantidade disponível: <?= $produto['quantidade'] ?></p>
+                <!-- <p>Quantidade disponível: <?= $produto['quantidade'] ?></p> -->
                 <a href="produto.php?id=<?= $produto['id'] ?>">Ver mais</a>
             </div>
         <?php endforeach; ?>
@@ -102,7 +102,9 @@ $produtos = $stmt->fetchAll();
     </div>
 
     <footer>
-        <p>&copy; 2025 Frog Tech. Todos os direitos reservados.</p>
+        <div class="footer-content">
+            <p>&copy; 2025 Frog Tech. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
     <script src="<?= BASE_URL ?>js/Nav-Bar.js"></script>

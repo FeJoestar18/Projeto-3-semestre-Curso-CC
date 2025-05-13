@@ -23,7 +23,8 @@ if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 1) {
 </head>
 <body>
     <h1>Olá, Mundo!</h1>
-    <a href  ="../pages-admin/departamentos/form-add-departamentos.php">Adicionar Departamentos</a><br>
+    <a href="../pages-admin/departamentos/form-add-departamentos.php">Adicionar Departamentos</a><br>
+    <a href="../pages-admin/produtos/lista-produtos.php">Listar Produtos</a><br>
     <a href="../pages-admin/fale-conosco/fale-conosco-adm.php">Fale Conosco</a><br>
     <a href="../Controller/logout.php" onclick="return confirm('Deseja realmente sair?')">Sair</a>
 </body>

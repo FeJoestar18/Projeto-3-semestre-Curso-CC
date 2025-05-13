@@ -38,7 +38,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/BotaoPaginaDeAjuda.css">
   
             <!-- css -->
-            <link rel="stylesheet" href="<?= BASE_URL ?>/css/css-usuarios/produto.css">
+            <link rel="stylesheet" href="<?= BASE_URL ?>/css/css-usuarios/produtoUser.css">
         </head>
         <body>
 
@@ -74,15 +74,15 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     </div>
 
     <div class="produto-descricao">
-        <p><?= nl2br(htmlspecialchars($produto['descricao'], ENT_QUOTES, 'UTF-8')) ?></p>
-        <p><strong>Preço:</strong> R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
+        <p><?= nl2br(htmlspecialchars($produto['descricao'], ENT_QUOTES, 'UTF-8')) ?></p><br>
+        <p><strong>Preço:</strong> R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p><br>
         <p><strong>Quantidade disponível:</strong> <?= (int) $produto['quantidade'] ?></p>
     </div>
 
     <div class="produto-botoes">
         <form method="post" action="<?= BASE_URL ?>/Controller/adicionar_carrinho.php">
             <input type="hidden" name="produto_id" value="<?= (int) $produto['id'] ?>">
-            <input type="number" name="quantidade" min="1" max="<?= (int) $produto['quantidade'] ?>" required>
+            <input type="number" name="quantidade" value="1" min="1" max="<?= (int) $produto['quantidade'] ?>" required>
             <button type="submit" name="acao" value="carrinho">Adicionar ao Carrinho</button>
         </form>
 
@@ -94,16 +94,19 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     </div>
 </div>
 
+<div class="floating-button" title="Pagina de Ajuda Usuário">
+        <a href="../paginas_cadastros/ajudaUsuario.php" target="_blank">
+            <img src="<?= BASE_URL ?>img/logo/FrogTech-logo.png" alt="Frog Tech Logo" width="40">
+        </a>
+    </div>
+<footer>
+    <p>&copy; 2025 Frog Tech. Todos os direitos reservados.</p>
+</footer>
 
+    <script src="<?= BASE_URL ?>js/Nav-Bar.js"></script>
 
-            <footer>
-                <p>&copy; 2025 Frog Tech. Todos os direitos reservados.</p>
-            </footer>
-
-            <script src="<?= BASE_URL ?>js/Nav-Bar.js"></script>
-
-        </body>
-        </html>
+    </body>
+</html>
 
         <?php
     } else {

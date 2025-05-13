@@ -28,8 +28,12 @@ include_once('../../Controller/admin/process-editar-produto.php');
 
             <div class="mb-3">
                 <label for="descricao" class="form-label">Descrição</label>
-                <textarea class="form-control" name="descricao" required><?= htmlspecialchars($produto['descricao']) ?></textarea>
+                <textarea class="form-control" id="descricao" name="descricao" required oninput="limitarDescricao()">
+                    <?= htmlspecialchars($produto['descricao']) ?>
+                </textarea>
+                <small id="contador" class="form-text text-muted" style="display: none;">0/150 caracteres</small>
             </div>
+
 
             <div class="mb-3">
                 <label for="quantidade" class="form-label">Quantidade</label>
@@ -40,5 +44,31 @@ include_once('../../Controller/admin/process-editar-produto.php');
             <a href="<?= BASE_URL ?>pages-admin/produtos/lista-produtos.php" class="btn btn-secondary">Cancelar</a>
         </form>
     </div>
+
+
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    limitarDescricao(); 
+});
+
+function limitarDescricao() {
+    const textarea = document.getElementById("descricao");
+    const contador = document.getElementById("contador");
+    const maxChars = 150;
+
+    if (textarea.value.length > maxChars) {
+        textarea.value = textarea.value.substring(0, maxChars);
+    }
+
+    contador.textContent = `${textarea.value.length}/${maxChars} caracteres`;
+
+    if (textarea.value.trim() === "") {
+        contador.style.display = "none";
+    } else {
+        contador.style.display = "block";
+    }
+}
+</script>
+
 </body>
 </html>

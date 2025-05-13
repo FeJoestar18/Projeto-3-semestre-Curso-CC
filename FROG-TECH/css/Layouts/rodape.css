@@ -1,16 +1,16 @@
 footer {
     position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     color: black;
     padding: 20px;
     text-align: center;
-    width: 50%;
-    bottom: 0;
+    background-color: #f0f0f0; /* Ajuste a cor de fundo conforme sua necessidade */
     z-index: 1000;
-    margin-left: 25%;
 }
 
 .footer-content p {
     margin: 0;
     font-size: 1rem;
-    
 }

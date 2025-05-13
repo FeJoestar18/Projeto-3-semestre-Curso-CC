@@ -38,7 +38,8 @@ if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 1) {
 
             <div class="mb-3">
                 <label for="descricao" class="form-label">Descrição</label>
-                <textarea class="form-control" id="descricao" name="descricao"></textarea>
+                <textarea class="form-control" id="descricao" name="descricao" oninput="limitarDescricao()" placeholder="Digite uma descrição..."></textarea>
+                <small id="contador" class="form-text text-muted">0/150 caracteres</small>
             </div>
 
             <div class="mb-3">
@@ -56,5 +57,26 @@ if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 1) {
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function limitarDescricao() {
+            const textarea = document.getElementById("descricao");
+            const contador = document.getElementById("contador");
+            const maxChars = 150;
+
+            if (textarea.value.length > maxChars) {
+                textarea.value = textarea.value.substring(0, maxChars);
+            }
+
+            contador.textContent = `${textarea.value.length}/${maxChars} caracteres`;
+
+            if (textarea.value.trim() === "") {
+                contador.style.display = "none";
+            } else {
+                contador.style.display = "block";
+            }
+        }
+    </script>
+
 </body>
 </html>
