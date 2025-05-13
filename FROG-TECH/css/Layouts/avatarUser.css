@@ -1,0 +1,11 @@
+.avatar {
+      cursor: pointer;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border: 2px solid #ccc;
+    }
+    #uploadForm {
+      display: none;
+    }
