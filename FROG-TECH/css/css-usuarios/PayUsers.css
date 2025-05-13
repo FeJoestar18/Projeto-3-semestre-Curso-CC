@@ -1,0 +1,63 @@
+/* Estilização do corpo da página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4CAF50; /* Cor de fundo verde */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Contêiner principal */
+        .container {
+            background-color: white;  /*Fundo branco */
+            border-radius: 20px; /* Bordas arredondadas*/ 
+            padding: 130px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            width: 80%; /* Ajuste a porcentagem conforme necessário */
+        }
+
+
+        /* Estilo do logo */
+       /* .logo img {
+            width: 150px; /* Ajuste o tamanho da imagem conforme necessário 
+        }*/
+        
+
+
+        /* Título de confirmação */
+        .title {
+            font-size: 50px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin: 50px 0;
+        }
+
+        /* Ícone de confirmação */
+        .icon img {
+            width: 90px; /* Ajuste o tamanho da imagem conforme necessário */
+        }
+
+        /* Texto de confirmação */
+        .confirmation-text {
+            font-size: 18px;
+            color: #4CAF50;
+            margin: 40px 0;
+        }
+
+        /* Texto do e-mail */
+        .email-text {
+            font-size: 16px;
+            color: #4CAF50;
+            margin: 20px 0;
+        }
+
+        /* Botão de voltar */
+        .back-button {
+            font-size: 16px;
+            color: red;
+            margin: 40px 0;
+            cursor: pointer;
+        }

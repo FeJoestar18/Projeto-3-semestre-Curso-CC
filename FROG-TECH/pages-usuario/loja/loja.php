@@ -9,13 +9,15 @@ include_once('../../Controller/lojaRequest.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos</title>
 
-    <!-- Layouts e CSS -->
+    <!-- Layouts -->
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/barraPesquisaLoja.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/header.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/footer.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/Nav-Bar.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/BotaoPaginaDeAjuda.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/filtroCategoriasLoja.css">
+
+    <!-- CSS ESTILOS -->
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/css-usuarios/lojaUser.css">
 </head>
 <body>
