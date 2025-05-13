@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #fafafa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.312);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  position: relative;
+  margin-top: 5.5%;
+}
+
+.container form {
+  display: none; 
+}
+
+.container img.avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 4px solid #1e6123;
+  margin-bottom: 10px;
+}
+
+.container img.avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(30, 97, 35, 0.3);
+}
+
+.container strong {
+  font-size: 18px;
+  color: #333;
+  display: block;
+  margin-top: 10px;
+}
+
+.container small {
+  color: #777;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.container h2 {
+  font-size: 22px;
+  color: #1e6123;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.container p {
+  font-size: 16px;
+  margin: 8px 0;
+  color: #444;
+}
+
+.container p strong {
+  color: #1e6123;
+}
+
+.container a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.container .logout {
+  background-color: #750410;
+  color: #fff;
+  margin-right: 5px;
+}
+
+.container .logout:hover {
+  background-color: #4b050c;
+}
+
+.container .btn-editar {
+  background-color: #34953b;
+  color: #fff;
+  margin-right: 5px;
+}
+
+.container .btn-editar:hover {
+  background-color: #1e6123;
+}
+
+.container .btn-excluir {
+  background-color: #02520b;
+  color: #fff;
+}
+
+.container .btn-excluir:hover {
+  background-color: #1e6123;
+}
+
+.container .actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.container .actions a {
+  flex: 1;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .container img.avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .container h2 {
+    font-size: 20px;
+  }
+
+  .container p {
+    font-size: 14px;
+  }
+}

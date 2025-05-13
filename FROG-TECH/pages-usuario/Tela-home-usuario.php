@@ -24,7 +24,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['role_id']) && $_SESSION['rol
     <title>Home</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/css-usuarios/telaHomeUser.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/header.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/rodape.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/footer2.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/Nav-Bar.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/cardStyleHome.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/BotaoPaginaDeAjuda.css">
@@ -82,7 +82,9 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['role_id']) && $_SESSION['rol
     </div>
 
     <footer>
-        <p>&copy; 2025 Frog Tech. Todos os direitos reservados.</p>
+        <div class="footer-content">
+            <p>&copy; 2025 Frog Tech. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
     <script src="../js/Nav-Bar.js"></script>
