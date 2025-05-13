@@ -33,7 +33,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             <!-- layouts -->
             <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/barraPesquisaLoja.css">
             <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/header.css">
-            <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/rodape.css">
+            <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/footer.css">
             <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/Nav-Bar.css">
             <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/BotaoPaginaDeAjuda.css">
   

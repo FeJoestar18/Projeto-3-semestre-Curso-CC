@@ -31,14 +31,16 @@ if (isset($_GET['id'])) {
         $preco = floatval($_POST['preco']);
         $descricao = trim($_POST['descricao']);
         $quantidade = intval($_POST['quantidade']);
+        $categoria_id = intval($_POST['categoria_id']); 
 
-        $sql = "UPDATE produtos SET nome = :nome, preco = :preco, descricao = :descricao, quantidade = :quantidade WHERE id = :id";
+        $sql = "UPDATE produtos SET nome = :nome, preco = :preco, descricao = :descricao, quantidade = :quantidade, categoria_id = :categoria_id WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             ':nome' => $nome,
             ':preco' => $preco,
             ':descricao' => $descricao,
             ':quantidade' => $quantidade,
+            ':categoria_id' => $categoria_id,
             ':id' => $id
         ]);
 

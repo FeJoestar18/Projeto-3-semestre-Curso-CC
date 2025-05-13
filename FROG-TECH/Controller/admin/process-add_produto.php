@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $preco = floatval($_POST['preco']);
     $descricao = trim($_POST['descricao']);
     $quantidade = intval($_POST['quantidade']);
+    $categoria_id = intval($_POST['categoria_id']);
 
     $pastaDestino = __DIR__ . '/../../uploads-files-produtos/'; 
 
@@ -45,14 +46,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $sql = "INSERT INTO produtos (nome, preco, descricao, quantidade, imagem) VALUES (:nome, :preco, :descricao, :quantidade, :imagem)";
+    $sql = "INSERT INTO produtos (nome, preco, descricao, quantidade, imagem, categoria_id) VALUES (:nome, :preco, :descricao, :quantidade, :imagem, :categoria_id)";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
         ':nome' => $nome,
         ':preco' => $preco,
         ':descricao' => $descricao,
         ':quantidade' => $quantidade,
-        ':imagem' => $imagem
+        ':imagem' => $imagem,
+        ':categoria_id' => $categoria_id
     ]);
 
     header('Location: ' . BASE_URL . 'pages-admin/produtos/lista-produtos.php?sucesso=1');

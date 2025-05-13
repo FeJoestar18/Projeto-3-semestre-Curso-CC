@@ -1,50 +1,21 @@
 <?php
-session_start();
-include(__DIR__ . "/../../Controller/Conect/conecao.php");
-include(__DIR__ . "/../../Controller/protect.php");
-include_once('../../Controller/Conect/config-url.php');
-include_once(__DIR__ . '/../../Controller/func/exibir-modal-verificar-role_id.php');
-
-if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 3) {
-    // echo "Usuário logado com ID: " . $_SESSION['user_id'];
-} else {
-    $imgUrl = BASE_URL . "/img/Modal-Error.png";
-    exibirModal($imgUrl);  
-    exit;
-}
-
-$query = "SELECT * FROM produtos";
-$search = isset($_GET['search']) ? trim($_GET['search']) : '';
-
-if (!empty($search)) {
-    $query .= " WHERE nome LIKE :search_nome OR descricao LIKE :search_descricao";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindValue(':search_nome', '%' . $search . '%');
-    $stmt->bindValue(':search_descricao', '%' . $search . '%');
-    $stmt->execute();
-} else {
-    $stmt = $pdo->query($query);
-}
-
-$produtos = $stmt->fetchAll();
-
+include_once('../../Controller/lojaRequest.php');
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos</title>
 
-    <!-- layouts -->
+    <!-- Layouts e CSS -->
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/barraPesquisaLoja.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/header.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/footer.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/Nav-Bar.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/BotaoPaginaDeAjuda.css">
-
-    <!-- css -->
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/layouts/filtroCategoriasLoja.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/css-usuarios/lojaUser.css">
 </head>
 <body>
@@ -54,14 +25,14 @@ $produtos = $stmt->fetchAll();
             <img src="<?= BASE_URL ?>img/logo/LogoHeader.png" alt="Frog Tech Logo">
         </div>
 
-        <form method="GET" action="">
-    <div style="position: relative;">
-        <input type="text" name="search" placeholder="Pesquisar produtos..." value="<?= htmlspecialchars($search) ?>">
-        <i class="search-icon">🔍</i> 
-    </div>
-</form>
+        <!-- Formulário de busca -->
+        <form method="GET" action="loja.php">
+            <div style="position: relative;">
+                <input type="text" name="search" placeholder="Pesquisar produtos..." value="<?= htmlspecialchars($search) ?>"> 
+                <i class="search-icon">🔍</i>
+            </div>
+        </form>
 
-    
         <div class="menu-icon" id="menuIcon">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -82,17 +53,27 @@ $produtos = $stmt->fetchAll();
 
     <h1>Lista de Produtos</h1>
 
-    <div class="produtos-container">
-        <?php foreach ($produtos as $produto): ?>
-            <div class="produto">
-                <img src="<?= BASE_URL ?>uploads-files-produtos/<?= htmlspecialchars($produto['imagem']) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>" width="100" height="100">
-                <h3><?= htmlspecialchars($produto['nome']) ?></h3>
-                <p><?= htmlspecialchars($produto['descricao']) ?></p>
-                <p>Preço: R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
-                <!-- <p>Quantidade disponível: <?= $produto['quantidade'] ?></p> -->
-                <a href="produto.php?id=<?= $produto['id'] ?>">Ver mais</a>
+    <div class="filtro-categorias">
+        <form method="GET" action="">
+            <div class="btn-group" role="group" aria-label="Filtros de categoria">
+                <button type="submit" name="categoria" value="" class="btn-outline-primary <?= ($categoria == '') ? 'active' : '' ?>">Todos</button>
+                <?php foreach ($categorias as $cat): ?>
+                    <button type="submit" name="categoria" value="<?= htmlspecialchars($cat['id']) ?>" class="btn-outline-primary <?= ($categoria == $cat['id']) ? 'active' : '' ?>">
+                        <?= htmlspecialchars($cat['nome']) ?>
+                    </button>
+                <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
+        </form>
+    </div>
+
+    <div class="produtos-container">
+        <?php if ($produtos): ?>
+            <?php foreach ($produtos as $produto): ?>
+                <?= renderProduto($produto) ?>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>Nenhum produto encontrado.</p>
+        <?php endif; ?>
     </div>
 
     <div class="floating-button" title="Pagina de Ajuda Usuário">
@@ -108,6 +89,6 @@ $produtos = $stmt->fetchAll();
     </footer>
 
     <script src="<?= BASE_URL ?>js/Nav-Bar.js"></script>
+    <script src='<?= BASE_URL ?>js/search.js'></script>
 
-</body>
 </html>

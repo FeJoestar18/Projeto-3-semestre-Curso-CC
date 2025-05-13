@@ -1,0 +1,36 @@
+.filtro-categorias {
+    margin: 33px 0;
+    font-family: Arial, sans-serif;
+    text-align: center; 
+    margin-left: 11%;
+}
+
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-outline-primary {
+    padding: 6px 14px;
+    border: 1px solid #34953b;
+    border-radius: 20px;
+    background-color: transparent;
+    color: #2c8131;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary.active {
+    background-color: #2e8133;
+    color: #fff;
+}
+
+.btn-outline-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(46, 129, 51, 0.25);
+}

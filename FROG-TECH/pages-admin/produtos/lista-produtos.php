@@ -16,6 +16,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 1) {
 $sql = "SELECT * FROM produtos ORDER BY id DESC";
 $stmt = $pdo->query($sql);
 $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 
@@ -39,7 +40,9 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <th>Descrição</th>
                     <th>Quantidade</th>
                     <th>Imagem</th>
+                    <th>Categoria</th>
                     <th>Ações</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -54,6 +57,19 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <?php if ($produto['imagem']): ?>
                                 <img src="<?= $produto['imagem'] ?>" alt="Imagem" width="100">
                             <?php endif; ?>
+                        </td>
+                        <td>
+                                <?php
+                                $stmt_categoria = $pdo->prepare("SELECT nome FROM categorias WHERE id = :id");
+                                $stmt_categoria->bindParam(':id', $produto['categoria_id']);
+                                $stmt_categoria->execute();
+                                $categoria = $stmt_categoria->fetch(PDO::FETCH_ASSOC);
+                                if ($categoria && isset($categoria['nome'])) {
+                                    echo htmlspecialchars($categoria['nome']);
+                                } else {
+                                    echo "Categoria não encontrada";  
+                                }
+                                ?>
                         </td>
                         <td>
                             <a href="<?php echo BASE_URL; ?>pages-admin/produtos/editar-produto.php?id=<?= $produto['id'] ?>" class="btn btn-warning btn-sm">Editar</a>

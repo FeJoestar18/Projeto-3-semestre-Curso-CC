@@ -2,6 +2,9 @@
 
 include_once('../../Controller/Conect/config-url.php');
 include_once('../../Controller/admin/process-editar-produto.php');
+
+$stmt = $pdo->query("SELECT * FROM categorias ORDER BY nome ASC");
+$categorias = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -39,6 +42,19 @@ include_once('../../Controller/admin/process-editar-produto.php');
                 <label for="quantidade" class="form-label">Quantidade</label>
                 <input type="number" class="form-control" name="quantidade" value="<?= $produto['quantidade'] ?>" required>
             </div>
+
+            <div class="mb-3">
+                <label for="categoria" class="form-label">Categoria</label>
+                <select name="categoria_id" class="form-select" required>
+                    <option value="">Selecione uma Categoria</option>
+                    <?php foreach ($categorias as $categoria): ?>
+                        <option value="<?= $categoria['id'] ?>" <?= (isset($produto['categoria_id']) && $produto['categoria_id'] == $categoria['id']) ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($categoria['nome']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
 
             <button type="submit" class="btn btn-primary">Salvar Alterações</button>
             <a href="<?= BASE_URL ?>pages-admin/produtos/lista-produtos.php" class="btn btn-secondary">Cancelar</a>

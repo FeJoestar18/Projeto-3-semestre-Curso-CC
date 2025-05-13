@@ -1,9 +1,12 @@
 <?php 
 
 session_start();
+include(__DIR__ . "/../../Controller/Conect/conecao.php");
 include_once('../../Controller/Conect/config-url.php'); 
 include_once(__DIR__ . '/../../Controller/func/exibir-modal-verificar-role_id.php');
 
+$stmt = $pdo->query("SELECT * FROM categorias ORDER BY nome ASC");
+$categorias = $stmt->fetchAll();
 
 if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 1) {
     // echo "Usuário logado com ID: " . $_SESSION['user_id'];
@@ -45,6 +48,18 @@ if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 1) {
             <div class="mb-3">
                 <label for="quantidade" class="form-label">Quantidade</label>
                 <input type="number" class="form-control" id="quantidade" name="quantidade" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="categoria" class="form-label">Categoria</label>
+                <select name="categoria_id" class="form-select" required>
+                    <option value="">Selecione uma Categoria</option>
+                    <?php foreach ($categorias as $categoria): ?>
+                        <option value="<?= $categoria['id'] ?>" <?= (isset($produto['categoria_id']) && $produto['categoria_id'] == $categoria['id']) ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($categoria['nome']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
             </div>
 
             <div class="mb-3">
