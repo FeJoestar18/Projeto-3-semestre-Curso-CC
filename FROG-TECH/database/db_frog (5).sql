@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 12/05/2025 às 16:55
+-- Tempo de geração: 14/05/2025 às 18:55
 -- Versão do servidor: 8.3.0
 -- Versão do PHP: 8.2.18
 
@@ -24,6 +24,41 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `categorias`
+--
+
+DROP TABLE IF EXISTS `categorias`;
+CREATE TABLE IF NOT EXISTS `categorias` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `total_produtos` int DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela `categorias`
+--
+
+INSERT INTO `categorias` (`id`, `nome`, `total_produtos`) VALUES
+(6, 'Software', 0),
+(5, 'Hardware', 0),
+(4, 'Periféricos', 0),
+(7, 'Smartphones', 0),
+(8, 'Notebooks', 0),
+(9, 'Tablets', 0),
+(10, 'Acessórios para PC', 0),
+(11, 'Monitores', 0),
+(12, 'Impressoras', 0),
+(13, 'Armazenamento', 0),
+(14, 'Redes e Conectividade', 0),
+(15, 'Segurança Digital', 0),
+(16, 'Jogos e Consoles', 0),
+(17, 'Componentes Internos', 0),
+(18, 'Áudio e Fones de Ouvido', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `compras`
 --
 
@@ -39,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `compras` (
   PRIMARY KEY (`id`),
   KEY `produto_id` (`produto_id`),
   KEY `fk_user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `compras`
@@ -59,7 +94,9 @@ INSERT INTO `compras` (`id`, `produto_id`, `nome_produto`, `preco`, `quantidade`
 (69, 20, 'Teste', 250.00, 1, '2025-05-12 16:07:35', 16),
 (70, 20, 'Teste', 250.00, 1, '2025-05-12 16:18:45', 16),
 (71, 21, 'Cláudio Sebastião Figueiredo', 250.00, 10, '2025-05-12 16:48:11', 16),
-(72, 21, 'Cláudio Sebastião Figueiredo', 250.00, 240, '2025-05-12 16:52:59', 16);
+(72, 21, 'Cláudio Sebastião Figueiredo', 250.00, 240, '2025-05-12 16:52:59', 16),
+(73, 24, 'Carregador Portátil Carregamento Rápido Turbo 20000mAh', 47.99, 1, '2025-05-13 03:36:08', 16),
+(74, 24, 'Carregador Portátil Carregamento Rápido Turbo 20000mAh', 47.99, 1, '2025-05-13 16:08:50', 16);
 
 -- --------------------------------------------------------
 
@@ -170,17 +207,75 @@ CREATE TABLE IF NOT EXISTS `produtos` (
   `descricao` text,
   `quantidade` int NOT NULL,
   `imagem` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `categoria_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_categoria_produto` (`categoria_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `produtos`
 --
 
-INSERT INTO `produtos` (`id`, `nome`, `preco`, `descricao`, `quantidade`, `imagem`) VALUES
-(21, 'Cláudio Sebastião Figueiredo', 250.00, '250', 0, '682226113b438.webp'),
-(20, 'Teste', 250.00, 'teste 20', 498, '681d4898d679b.png'),
-(18, 'Daniel Alves', 222.00, '2220', 1052, '681cc4898802f.png');
+INSERT INTO `produtos` (`id`, `nome`, `preco`, `descricao`, `quantidade`, `imagem`, `categoria_id`) VALUES
+(23, 'Caixa De Som Jbl Go 4 Bluetooth Portátil À Prova D\'água', 299.20, 'JBL GO 4 ORIGINAL - Som ultra portátil JBL GO 4 com graves mais potentes', 1000, '68229714eb9f2.png', 18),
+(22, 'Cabo HDMI 2.0 4K de 20 metros', 169.90, 'Trazendo mais qualidade de som e imagem para seus equipamentos favoritos', 1000, '682296c9615f2.png', 14),
+(24, 'Carregador Portátil Carregamento Rápido Turbo 20000mAh', 47.99, 'Um dispositivo compacto e potente, ideal para manter seus dispositivos sempre carregados.', 998, '682297a6e398a.png', 10),
+(25, 'Switch hub de mesa 8 portas 10/100 TP-Link TL-SF1008D', 69.37, 'Switch de mesa de 8 portas 10/100Mbps\r\n8 portas RJ45 de auto-negociação 10/100Mbps, suporta auto MDI/MDIX', 1000, '68229812dcffe.png', 10),
+(26, 'Estabilizador TS Shara Powerest 300VA, 115V, 4 Tomadas, Preto - 9100', 89.90, 'O Estabilizador PowerEst é a proteção ideal para os equipamentos eletrodomésticos em geral', 1000, '68229859545fc.png', 17),
+(27, 'Repetidor Wifi Mi Range Extender Pro Xiaomi Preto', 108.00, 'Um dispositivo que amplia o alcance e a cobertura do Wi-Fi em residências ou escritórios, proporcionando estabilidade nas conexões', 1000, '68229894e9b39.png', 14),
+(28, 'JBL, Fone de Ouvido On ear, Tune 720BT - Preto', 305.00, 'JBL PURE BASS. O JBL Tune 720BT apresenta o renomado som JBL Pure Bass, o mesmo que toca nos locais mais famosos em todo o mundo.', 1000, '682298c4bcd69.png', 18),
+(29, 'Hd Seagate Expansion Usb 3.0 1tb', 360.00, 'O Armazenamento Que Você Precisa Para Suas Fotos, Vídeos E Arquivos Cor Preto', 1000, '682298f3e94af.png', 13),
+(30, 'Canon Impressora sem fio PIXMA TR4720 All-in-One', 576.00, 'para uso doméstico, com alimentador automático de documentos, impressão móvel e fax integrado, branca', 1000, '6822992845489.png', 12),
+(31, 'Monitor PC Gamer LG 24MS500 24” IPS 100Hz Full HD HDMI 2x', 574.82, 'é uma tela de 24\" com resolução Full HD, painel IPS, taxa de atualização de 100Hz e duas entradas HDMI.', 1000, '68229982769ef.png', 4),
+(32, 'Attack Shark X11 Conexão Tri-Mode 2,4 GHz', 128.83, 'com fio e tambem conexões Bluetooth PAW3311 22K000DPI 400IPS RGB Mouse para jogos para PC', 1000, '682299efdacf9.png', 14),
+(33, 'Notebook Dell Inspiron 15', 3334.24, 'Processador Intel Core i5\r\n8GB de RAM\r\nSSD de 512GB\r\nTela de 15,6\"\r\nSistema operacional Windows 11', 1000, '68229a4079d98.png', 8),
+(34, 'RTX 3060 Ti Nvidia', 3442.00, 'Performance e baixo consumo, ideal para o seu PC', 1000, '68229ab0cfce2.png', 5),
+(35, 'Headset Gamer Redragon Zeus X RGB, Surround 7.1', 289.99, 'USB, Microfone com Redução de Ruído, Branco com Vermelho - H510RGB-RED', 1000, '68229ae589c7e.png', 18),
+(36, 'SSD Kingston A400, 480GB, SATA III', 244.99, '2.5\", Leitura: 500MB/s, Gravação: 450MB/s, Preto - SA400S37/480G', 1000, '68229b21aff71.png', 13),
+(37, 'Suporte para Notebooks', 149.90, 'Ótimo para suporte e Perfeito para desenvolvedores', 1000, '68229b69debe6.png', 8),
+(38, 'Hub Hdmi Switch 4k', 60.58, '1x2 2x1 Para Tv Computador Ps5 Xbox 360', 1000, '68229ba1cb102.png', 10),
+(39, 'Teclado Com Fio Compacto', 21.99, 'Conexão USB Cabo de 120cm Resistente Água Preto - TC193', 1000, '68229bdd9dfd7.png', 4),
+(40, 'Teclado Mecânico Gamer', 119.99, 'Switch Blue, RGB, Layout Português, USB', 1000, '68229c09ccb48.png', 4),
+(41, 'Webcam USB Full HD 1080P', 169.90, 'Microfone estéreo com cancelamento de ruído integrado.', 1000, '68229c49ab1ec.png', 10);
+
+--
+-- Acionadores `produtos`
+--
+DROP TRIGGER IF EXISTS `atualizar_total_produtos_apos_atualizar`;
+DELIMITER $$
+CREATE TRIGGER `atualizar_total_produtos_apos_atualizar` AFTER UPDATE ON `produtos` FOR EACH ROW BEGIN
+    -- Reduz o contador na categoria antiga
+    IF OLD.categoria_id <> NEW.categoria_id THEN
+        UPDATE categorias 
+        SET total_produtos = total_produtos - 1 
+        WHERE id = OLD.categoria_id;
+
+        -- Aumenta o contador na nova categoria
+        UPDATE categorias 
+        SET total_produtos = total_produtos + 1 
+        WHERE id = NEW.categoria_id;
+    END IF;
+END
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `atualizar_total_produtos_apos_excluir`;
+DELIMITER $$
+CREATE TRIGGER `atualizar_total_produtos_apos_excluir` AFTER DELETE ON `produtos` FOR EACH ROW BEGIN
+    UPDATE categorias 
+    SET total_produtos = total_produtos - 1 
+    WHERE id = OLD.categoria_id;
+END
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `atualizar_total_produtos_apos_inserir`;
+DELIMITER $$
+CREATE TRIGGER `atualizar_total_produtos_apos_inserir` AFTER INSERT ON `produtos` FOR EACH ROW BEGIN
+    UPDATE categorias 
+    SET total_produtos = total_produtos + 1 
+    WHERE id = NEW.categoria_id;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -225,15 +320,15 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   UNIQUE KEY `cpf` (`cpf`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `telefone` (`telefone`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `email`, `senha`, `cpf`, `telefone`, `token_recuperacao`, `token_expira`, `role_id`, `cep`, `rua`, `bairro`, `cidade`, `estado`, `foto`) VALUES
-(16, '1205@mailna.co', '$2y$10$pRTshis0XDFJCdRAjsLrh.VgkkPT7Q2jlUy7fSiWpyPSgVMbs9dcW', '15799945041', '12345678911', 'afe45f8e8503bf2b5d07707025e8bcadd10518f7fbb3ec242638b4692879c18d', '2025-05-12 15:56:45', 3, '74969-436', 'Rua das Hosanas', 'Jardim Monte Líbano', 'Aparecida de Goiânia', 'GO', '682213f22623a.webp'),
-(17, 'teste2@mailna.co', '$2y$10$qIiMZYPOSLXQiOD02yBub.xPFYpjuTlvBiZpPGPYYd44TToSsZbh2', '12345678911', '11932920444', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL);
+(17, 'teste2@mailna.co', '$2y$10$qIiMZYPOSLXQiOD02yBub.xPFYpjuTlvBiZpPGPYYd44TToSsZbh2', '12345678911', '11932920444', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 'teste@mailna.co', '$2y$10$0RVWRANQceQrzovbMzegHeyNDBy3t0VvpFuThZYz.yQbdy0LkkTNi', '15799945041', '12345678911', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, '682374a1db1b6.png');
 
 --
 -- Restrições para tabelas despejadas
