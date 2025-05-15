@@ -1,3 +1,11 @@
+<?php
+
+include("/Controller/Conect/config-url.php");
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,8 +32,24 @@
 
     .icones .icone {
       height: 30px;
-      margin-left: 20px;
+      margin-left: 1100px;
     }
+
+    .menu-hamburguer{
+     width: 30px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+    .menu-hamburguer span {
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
+    display: block;
+}
 
     main {
       padding: 40px;
@@ -39,19 +63,47 @@
     }
 
     .sapo-img {
-      width: 150px;
+      width: 190px;
       margin-left: 80px;
       margin-top: 80px;
     }
 
     .fala {
-      background-color: #f2f2f2;
-      border-radius: 20px;
-      padding: 20px;
-      font-size: 18px;
-      max-width: 300px;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-    }
+  max-width: 250px;
+  background: white;
+  border: 3px solid black;
+  border-radius: 20px;
+  padding: 20px;
+  font-family: sans-serif;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.balao-fala::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 30px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: black;
+  border-bottom: 0;
+  margin-left: -10px;
+}
+
+.balao-fala::before {
+  content: "";
+  position: absolute;
+  bottom: -17px;
+  left: 30px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: white;
+  border-bottom: 0;
+  margin-left: -10px;
+}
 
     .servicos {
       display: flex;
@@ -84,11 +136,15 @@
 <body>
   <header class="topo">
     <div class="logo">
-      <img src="Imagens/Logo2.png" alt="Logo FrogTech" />
+      <img src="/Imagens/Logo2.png" alt="Logo FrogTech" />
     </div>
     <div class="icones">
-      <img src="/Imagens/icons8-usuário-48.png" alt="Ícone Usuário" class="icone" />
-      <img src="/Imagens/icons8-cardápio-50 (1).png" alt="Menu" class="icone" />
+      <img src="<?= BASE_URL ?>imagens/Icone.usuario.png" class="icone" />
+    </div>
+    <div class="menu-hamburguer">
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
   </header>
 
