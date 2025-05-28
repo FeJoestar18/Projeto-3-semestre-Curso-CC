@@ -4,7 +4,7 @@ include(__DIR__ . '/../../Controller/Conect/conecao.php');
 include_once(__DIR__ . '/../../Controller/Conect/config-url.php');
 include_once(__DIR__ . '/../../Controller/func/exibir-modal-verificar-role_id.php');
 
-if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 1) {
+if (isset($_SESSION['user_id']) && ($_SESSION['role_id'] === 1 || $_SESSION['role_id'] === 2)) {
     // echo "Usuário logado com ID: " . $_SESSION['user_id'];
 } else {
     $imgUrl = BASE_URL . "/img/Modal-Error.png";

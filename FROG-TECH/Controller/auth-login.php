@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     header("Location: " . BASE_URL . "pages-admin/Tela-home-adm.php");
                     break;
                 case 2:
-                    header("Location: " . BASE_URL . "pages-funcionario/Tela-home-func.php");
+                    header("Location: " . BASE_URL . "pages-admin/Tela-home-adm.php");
                     break;
                 case 3:
                     header("Location: " . BASE_URL . "pages-usuario/Tela-home-usuario.php");
