@@ -61,22 +61,22 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['role_id']) && $_SESSION['rol
         <div class="card">
             <h2>Compre Agora</h2>
             <p>Aproveite nossas ofertas exclusivas.</p>
-            <a href="../paginas_cadastros/faleConosco.php" class="button">Comprar</a>
+            <a href="../pages-usuario/loja/loja.php" class="button">Comprar</a>
         </div>
         <div class="card">
             <h2>Fale Conosco</h2>
             <p>Entre em contato com nossa equipe de suporte.</p>
-            <a href="../paginas_cadastros/faleConosco.php" class="button">Fale Conosco</a>
+            <a href="../pages-usuario/fale-conosco-user/fale-conosco-user.php" class="button">Fale Conosco</a>
         </div>
-        <div class="card">
+        <!-- <div class="card">
             <h2>Sobre Nós</h2>
             <p>Conheça mais sobre nossa história e valores.</p>
-            <a href="../paginas_cadastros/faleConosco.php" class="button">Venha Saber Mais</a>
-        </div>
+            <a href="../pages-usuario/sobreNos.php" class="button">Venha Saber Mais</a>
+        </div> -->
     </div>
 
     <div class="floating-button" title="Pagina de Ajuda Usuário">
-        <a href="../paginas_cadastros/ajudaUsuario.php" target="_blank">
+        <a href="../pages-usuario/ajudaUsuario.php" target="_blank">
             <img src="<?= BASE_URL ?>img/logo/FrogTech-logo.png" alt="Frog Tech Logo" width="40">
         </a>
     </div>

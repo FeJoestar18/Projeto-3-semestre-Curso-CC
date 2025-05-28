@@ -46,6 +46,7 @@ include_once('../../Controller/lojaRequest.php');
         <ul>
             <li><a href="<?= BASE_URL ?>pages-usuario/loja/carrinho.php">Carrinho de Compras</a></li>
             <li><a href="<?= BASE_URL ?>pages-usuario/usuario-pages/pagina-usuario.php">Perfil de Usuário</a></li>
+            <li><a href="<?= BASE_URL ?>pages-usuario/fale-conosco-user/fale-conosco-user.php">Fale Conosco</a></li>
             <li><a href="<?= BASE_URL ?>pages-usuario/Tela-home-usuario.php">Pagina Home</a></li>
             <li><a href="<?= BASE_URL ?>Controller/logout.php" class="logout">Sair</a></li>
         </ul>
