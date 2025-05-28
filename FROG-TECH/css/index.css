@@ -69,8 +69,6 @@ main {
   transform: scale(1.05);
 }
 
-
-
 .content {
   display: flex;
   justify-content: space-between;
@@ -135,4 +133,21 @@ main {
   width: 120%;
   height: auto;
   object-fit: cover;
+}
+
+footer {
+    position: fixed;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    width: 50%;
+    bottom: 0;
+    z-index: 1000;
+    margin-left: 5%;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 1rem;
+    
 }
