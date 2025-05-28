@@ -58,7 +58,7 @@ $total = 0;
 <div class="overlay" id="overlay"></div>
 
 <div class="floating-button" title="Pagina de Ajuda Usuário">
-        <a href="../paginas_cadastros/ajudaUsuario.php" target="_blank">
+        <a href="<?= BASE_URL ?>pages-usuario/ajuda.php" target="_blank">
             <img src="<?= BASE_URL ?>img/logo/FrogTech-logo.png" alt="Frog Tech Logo" width="40">
         </a>
     </div>

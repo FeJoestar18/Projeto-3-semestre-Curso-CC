@@ -86,6 +86,12 @@ $questions = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </ul>
     </div>
 
+<div class="floating-button" title="Pagina de Ajuda Usuário">
+        <a href="<?= BASE_URL ?>pages-usuario/ajuda.php" target="_blank">
+            <img src="<?= BASE_URL ?>img/logo/FrogTech-logo.png" alt="Frog Tech Logo" width="40">
+        </a>
+    </div>
+    
     <footer>
         <p>&copy; 2025 Frog Tech. Todos os direitos reservados.</p>
     </footer>

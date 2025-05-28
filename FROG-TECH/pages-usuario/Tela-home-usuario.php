@@ -76,7 +76,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['role_id']) && $_SESSION['rol
     </div>
 
     <div class="floating-button" title="Pagina de Ajuda Usuário">
-        <a href="../pages-usuario/ajudaUsuario.php" target="_blank">
+        <a href="../pages-usuario/ajuda.php" target="_blank">
             <img src="<?= BASE_URL ?>img/logo/FrogTech-logo.png" alt="Frog Tech Logo" width="40">
         </a>
     </div>
