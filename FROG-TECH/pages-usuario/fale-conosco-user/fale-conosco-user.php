@@ -37,7 +37,6 @@ $questions = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <link rel="stylesheet" href="<?= BASE_URL ?>/css/css-usuarios/fale-conosco.css">
 </head>
 <body>
-
     <header>
     <div class="logo">
         <img src="<?= BASE_URL ?>img/logo/LogoHeader.png" alt="Frog Tech Logo">
@@ -62,37 +61,36 @@ $questions = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="overlay" id="overlay"></div>
 
     <div class="container mt-4">
+        <h2>Fale Conosco - Usuário</h2>
 
-    <h2>Fale Conosco - Usuário</h2>
+        <form action="<?= BASE_URL ?>Controller/process-fale-conosco.php" method="post" class="mb-3">
+            <div class="mb-3">
+                <label for="question" class="form-label">Sua Pergunta</label>
+                <textarea name="question" class="form-control" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar Pergunta</button>
+        </form>
 
-    <form action="<?= BASE_URL ?>Controller/process-fale-conosco.php" method="post" class="mb-3">
-        <div class="mb-3">
-            <label for="question" class="form-label">Sua Pergunta</label>
-            <textarea name="question" class="form-control" rows="3" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar Pergunta</button>
-    </form>
+        <h3>Suas Perguntas</h3>
+        <ul class="list-group">
+            <?php foreach ($questions as $q) { ?>
+                <li class="list-group-item">
+                    <strong>Você:</strong> <?php echo htmlspecialchars($q['question']); ?><br>
+                    <?php if ($q['answer']) { ?>
+                        <strong>Resposta do Admin:</strong> <?php echo htmlspecialchars($q['answer']); ?>
+                    <?php } else { ?>
+                        <em>Aguardando resposta...</em>
+                    <?php } ?>
+                </li>
+            <?php } ?>
+        </ul>
+    </div>
 
-    <h3>Suas Perguntas</h3>
-    <ul class="list-group">
-        <?php foreach ($questions as $q) { ?>
-            <li class="list-group-item">
-                <strong>Você:</strong> <?php echo htmlspecialchars($q['question']); ?><br>
-                <?php if ($q['answer']) { ?>
-                    <strong>Resposta do Admin:</strong> <?php echo htmlspecialchars($q['answer']); ?>
-                <?php } else { ?>
-                    <em>Aguardando resposta...</em>
-                <?php } ?>
-            </li>
-        <?php } ?>
-    </ul>
-</div>
+    <footer>
+        <p>&copy; 2025 Frog Tech. Todos os direitos reservados.</p>
+    </footer>
 
-<footer>
-    <p>&copy; 2025 Frog Tech. Todos os direitos reservados.</p>
-</footer>
-
- <script src="<?= BASE_URL ?>js/Nav-Bar.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= BASE_URL ?>js/Nav-Bar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
