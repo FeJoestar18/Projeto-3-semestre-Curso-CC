@@ -146,7 +146,9 @@ Frog Tech é um excelente exemplo de aplicação PHP com boas práticas básicas
 ```bash
 # git clone https://github.com/FeJoestar18/Projeto-3-semestre-Curso-CC.git
 ```
-Usar o git clone na pasta "Htdocs" se estiver usando o XAMPP, Clonar na "WWW" se estiver usando WAMPP
+### Usar o git clone na pasta "Htdocs" se estiver usando o XAMPP
+
+### Clonar na "WWW" se estiver usando WAMPP
 ---
 
 # Como rodar um projeto PHP com WAMP, XAMPP e Docker
