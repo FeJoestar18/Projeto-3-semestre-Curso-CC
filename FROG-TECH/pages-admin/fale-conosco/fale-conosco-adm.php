@@ -21,12 +21,12 @@ $stmt = $pdo->prepare("SELECT q.*, u.email FROM questions q JOIN usuarios u ON q
 $stmt->execute();
 $questions = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-    if (isset($_SESSION['user_id'])) {
-        echo "Usuário logado com ID: " . $_SESSION['user_id'] . "<br>";
-        echo "role_id: " . (isset($_SESSION['role_id']) ? $_SESSION['role_id'] : 'Não definido') . "<br>";
-    } else {
-        echo "Usuário não logado.";
-    }
+    // if (isset($_SESSION['user_id'])) {
+    //     echo "Usuário logado com ID: " . $_SESSION['user_id'] . "<br>";
+    //     echo "role_id: " . (isset($_SESSION['role_id']) ? $_SESSION['role_id'] : 'Não definido') . "<br>";
+    // } else {
+    //     echo "Usuário não logado.";
+    // }
     
 ?>
 
@@ -37,9 +37,127 @@ $questions = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>Admin - Responder Perguntas</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
+<style>
+   body {
+    background-color: #f5f7fb;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 0 12px rgba(0, 168, 107, 0.15);
+}
+
+h2, h3 {
+    color: #00a86b;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.list-group {
+    list-style: none;
+    padding: 0;
+}
+
+.list-group-item {
+    background-color: #f0fdf8;
+    border: 1px solid #00a86b;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    color: #333;
+}
+
+.list-group-item:hover {
+    background-color: #e6fbf0;
+    transform: scale(1.01);
+}
+
+.list-group-item strong {
+    display: block;
+    color: #00a86b;
+    margin-bottom: 5px;
+}
+
+.btn {
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #00a86b;
+}
+
+.btn-primary:hover {
+    background-color: #008f5d;
+    transform: scale(1.05);
+}
+
+/* Modal */
+.modal-content {
+    background-color: #fff;
+    border-radius: 10px;
+    color: #333;
+    border: 1px solid #00a86b;
+}
+
+.modal-header, .modal-footer {
+    border: none;
+}
+
+.modal-title {
+    color: #00a86b;
+}
+
+.btn-close {
+    filter: none;
+}
+
+.form-label {
+    color: #00a86b;
+    font-weight: 500;
+}
+
+.form-control {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.form-control:focus {
+    border-color: #00a86b;
+    box-shadow: 0 0 6px rgba(0, 168, 107, 0.4);
+    background-color: #fefefe;
+    color: #333;
+}
+
+.modal-footer .btn-primary {
+    background-color: #00a86b;
+    color: white;
+}
+
+.modal-footer .btn-primary:hover {
+    background-color: #008f5d;
+}
+
+</style>
 <body>
 <div class="container mt-4">
-    <h2>Painel de Respostas - Admin</h2>
+    <h2>Painel de Respostas</h2>
 
     <h3>Todas as Perguntas</h3>
     <ul class="list-group">
@@ -50,7 +168,7 @@ $questions = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php if ($q['answer']) { ?>
                 <strong>Resposta:</strong> <?php echo htmlspecialchars($q['answer']); ?>
             <?php } else { ?>
-                <button class="btn btn-sm btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#answerModal" data-id="<?php echo $q['id']; ?>">Responder</button>
+                <button class="btn btn-sm btn-primary mt-2" style="background-color: #00a86b;" data-bs-toggle="modal" data-bs-target="#answerModal" data-id="<?php echo $q['id']; ?>">Responder</button>
             <?php } ?>
         </li>
     <?php } ?>
@@ -74,7 +192,7 @@ $questions = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Enviar Resposta</button>
+                    <button type="submit" class="btn btn-primary" style="background-color: #00a86b;">Enviar Resposta</button>
                 </div>
             </form>
         </div>
