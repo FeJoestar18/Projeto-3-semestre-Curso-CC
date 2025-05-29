@@ -43,6 +43,14 @@ O sistema agora está **hospedado na plataforma Hostinger**, garantindo:
 - Melhor tempo de resposta em produção;
 - Suporte completo para banco de dados e PHP.
 
+## Fluxos de Trabalhos
+
+Aplicamos fluxos de trabalhos pra nos ajudar a nos guiar no desenvolvimento de das telas e funcionalidades 
+
+- Ultilizamos conhecimentos que adquirimos no primeiro semestre pra aprimorar o nosso projeto esse semestre
+- Ferramenta Draw.io
+- Dados de todos os processos e Fluxos Frog tech
+
 ---
 
 Essas melhorias tornaram o **Frog Tech** um sistema mais completo, confiável e preparado para atender às necessidades dos usuários com maior eficiência e organização.
