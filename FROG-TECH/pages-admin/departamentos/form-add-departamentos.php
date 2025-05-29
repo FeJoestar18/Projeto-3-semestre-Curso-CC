@@ -37,7 +37,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 1) {
                 <textarea class="form-control" id="descricao" name="descricao"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">Adicionar Departamento</button>
+            <button type="submit" class="btn btn-primary" style="background-color: #00a86b;">Adicionar Departamento</button>
         </form>
     </div>
 

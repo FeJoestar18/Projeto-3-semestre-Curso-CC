@@ -26,7 +26,7 @@ include_once('../../Controller/admin/process-form-edit-departamento.php');
                 <textarea class="form-control" name="descricao" required><?= htmlspecialchars($departamento['descricao']) ?></textarea>
             </div>
             
-            <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+            <button type="submit" class="btn btn-primary" style="background-color: #00a86b;">Salvar Alterações</button>
             <a href="<?= BASE_URL ?>pages-admin/departamentos/lista-departamento.php" class="btn btn-secondary">Cancelar</a>
         </form>
     </div>

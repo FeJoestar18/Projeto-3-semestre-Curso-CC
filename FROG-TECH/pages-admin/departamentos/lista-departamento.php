@@ -26,9 +26,11 @@ $departamentos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Departamentos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/css-admin/lista-departamentos.css">
+
 </head>
 <body>
-    <div class="container mt-5">
+    <div class="container">
         <h2>Lista de Departamentos</h2>
         <table class="table table-bordered">
             <thead>
