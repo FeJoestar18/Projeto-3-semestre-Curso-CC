@@ -28,6 +28,8 @@ $departamentos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="<?php echo BASE_URL; ?>js/buscarCEP.js"></script> 
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/css-admin/add-funcionario.css">
+
 </head>
 <body class="container py-4">
 
@@ -120,6 +122,7 @@ $departamentos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <button type="submit" class="btn btn-success">Cadastrar Funcionário</button>
     </form>
+
     <?php include(__DIR__ . "/../../components/menu-rapido.php"); ?>
 </body>
 </html>

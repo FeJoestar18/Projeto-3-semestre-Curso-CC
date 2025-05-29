@@ -27,9 +27,14 @@ $funcionario = $stmt->fetch(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Funcionário</title>
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/css-admin/editar-funcionario.css">
+
 </head>
 <body>
+    <div class="container">
     <h2>Editar Funcionário</h2>
+
+
     <form action="<?php echo BASE_URL; ?>Controller/admin/editar-funcionario-process.php?id=<?php echo $funcionario['id']; ?>" method="POST">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" value="<?php echo $funcionario['nome']; ?>" required><br>
@@ -69,6 +74,7 @@ $funcionario = $stmt->fetch(PDO::FETCH_ASSOC);
 
         <input type="submit" value="Atualizar">
     </form>
+    </div>
     <?php include(__DIR__ . "/../../components/menu-rapido.php"); ?>
 </body>
 </html>
