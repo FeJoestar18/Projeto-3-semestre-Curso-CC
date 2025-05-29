@@ -6,7 +6,7 @@ https://drive.google.com/drive/folders/1GnvQkU-7EJX6WX6KMFzwcK7OBR5zrR02?usp=dri
 https://drive.google.com/file/d/1Cv_YQQdJiEiJpkF3EDXDR0ce0HlZ86xf/view?usp=drive_link
 
 # Documentação 
-https://docs.google.com/document/d/1DDH3VsCG73-EskIKxZDXPnNfmJ5-OjQhOAsLefE80so/edit?usp=drive_link
+https://docs.google.com/document/d/1SUjZ8xfaH8Hg0Wgv3OU3NoJqNGYg23A8/edit?usp=drive_link&ouid=111527009699470287628&rtpof=true&sd=true
 
 # Melhorias Documentadas
 https://docs.google.com/document/d/1pLAhkpNQTAMHezIBBbFrAEigIZTJ7SM7/edit?usp=drive_link&ouid=111527009699470287628&rtpof=true&sd=true
