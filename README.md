@@ -26,7 +26,8 @@ Criar uma plataforma de e-commerce funcional com foco em:
 * Login com controle de acesso baseado em roles:
 
   * `role_id = 1` para Admins
-  * Funcionários logam com o **CPF**, usando a tabela `funcionarios`
+  * `role_id = 2` para Funcionarios
+  * `role_id = 3` para Usuarios
 
 ### 2. Produtos
 
@@ -53,11 +54,7 @@ Criar uma plataforma de e-commerce funcional com foco em:
 
 ## 🎨 Identidade Visual
 
-A identidade visual da Frog Tech é baseada em um tema **verde neon e branco**, que é aplicado a todas as telas administrativas. O verde primário usado é:
-
-```css
-#00a86b
-```
+A identidade visual da Frog Tech é baseada em um tema **verde e branco**, que é aplicado a todas as telas administrativas.
 
 ### Elementos Estilizados
 
@@ -66,12 +63,26 @@ A identidade visual da Frog Tech é baseada em um tema **verde neon e branco**, 
 * **Cards** com bordas arredondadas e sombreamento leve
 * **Formulários e tabelas** com visual moderno e limpo
 
-## ⚖️ Estrutura Esperada (Resumida)
+## ⚖️ Estrutura 
 
-* `/pages-admin/` - Páginas do painel administrativo
-* `/Controller/admin/` - Lógicas e processamentos de dados (editar, deletar, etc.)
-* `/components/` - Inclui arquivos como `menu-rapido.php`
-* `BASE_URL` - Constante utilizada para referenciar a raiz do sistema
+FROG-TECH/
+├── Api/                      # (Futuras integrações ou APIs internas)
+├── components/               # Componentes reutilizáveis (ex: menu rápido)
+├── Controller/               # Lógica de backend e regras (processamento de formulários, etc)
+├── css/                      # Estilos customizados
+├── database/                 # Scripts de criação e conexão com o banco de dados
+├── Imagens/                  # Imagens da aplicação
+├── img/                      # Ícones, logos e outras imagens (uso duplicado, pode ser unificado)
+├── js/                       # Scripts JavaScript
+├── pages-admin/              # Telas do painel administrativo
+├── pages-usuario/            # Telas acessadas pelos usuários/clientes
+├── uploads-files-produtos/   # Uploads de imagens dos produtos
+├── .env                      # Variáveis de ambiente (ex: BASE_URL)
+├── .gitignore                # Arquivos/pastas ignorados pelo Git
+├── .htaccess                 # Regras de reescrita e segurança para Apache
+├── index.html                # Página inicial
+└── info.php                  # Exibe informações do PHP instalado no servidor
+
 
 ## 🎓 Contexto Acadêmico
 
