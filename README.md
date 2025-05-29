@@ -4,7 +4,7 @@ https://github.com/FeJoestar18/FROG-TECH.git
 
 ---
 
-# Documentação juntamente com o Video e o DB
+# Documentação juntamente com o Video e o Database necessario pra rodar o Projeto localmente
 https://drive.google.com/drive/folders/1GnvQkU-7EJX6WX6KMFzwcK7OBR5zrR02?usp=drive_link
 
 ---
