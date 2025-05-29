@@ -126,10 +126,8 @@ O sistema foi idealizado como parte do **curso de Ciência da Computação**, co
 ## ✨ Possíveis Melhorias Futuras
 
 * Integração com sistema de pagamentos
-* Relatórios gráficos (vendas, estoque)
-* Upload de imagens dos produtos
 * API para integrações externas
-* Controle de sessão e log de auditoria
+* Melhora do UI e UX
 
 ## 🚀 Conclusão
 
@@ -139,33 +137,16 @@ Frog Tech é um excelente exemplo de aplicação PHP com boas práticas básicas
 
 > "Tecnologia em evolução constante, aprendizado em progresso infinito." - Frog Tech
 
+---
 
 ### Como rodar o Projeto 
 
 ### Passo 1°- Clonar o Repositorio
 
 ```bash
-# Inicializar um repositório Git
-git init
-
-# Adicionar todos os arquivos ao staging
-git add .
-
-# Fazer o primeiro commit
-git commit -m "Initial commit"
-
-# Configurar o repositório remoto
-git remote add origin [https://github.com/FeJoestar18/FROG-TECH.git](https://github.com/FeJoestar18/Projeto-3-semestre-Curso-CC.git)
-
-# Enviar os arquivos para o repositório remoto
-git push -u origin main
-
-# Puxar os arquivos do Repositorio
-git pull origin main
-
-Use o comando `git status` para verificar o estado do repositório.
-
+# git clone https://github.com/FeJoestar18/Projeto-3-semestre-Curso-CC.git
 ```
+Usar o git clone na pasta "Htdocs" se estiver usando o XAMPP, Clonar na "WWW" se estiver usando WAMPP
 ---
 
 # Como rodar um projeto PHP com WAMP, XAMPP e Docker
@@ -305,3 +286,53 @@ O seu projeto PHP será exibido.
    - Você pode navegar pelas tabelas e visualizar os dados inseridos.
 
 ---
+
+# Melhorias no Projeto Frog Tech
+
+O projeto **Frog Tech** passou por uma série de melhorias significativas, visando aprimorar sua estrutura, funcionalidades e a experiência do usuário. Essas mudanças foram implementadas **sem a utilização de frameworks** robustos como o Laravel, o que reforça o desafio técnico e a atenção dedicada à organização do código e à escalabilidade da aplicação.
+
+## 🧱 Arquitetura do Projeto
+
+Uma das principais evoluções foi a **melhoria na arquitetura**, que agora conta com uma estrutura mais clara e modular. Essa reformulação trouxe:
+
+- Maior legibilidade do código;
+- Separação de responsabilidades;
+- Facilidade na manutenção e evolução do sistema.
+
+## ✉️ Novas Funcionalidades
+
+Foram adicionados novos recursos que aumentam a usabilidade e a eficiência do sistema:
+
+- **Formulário de Fale Conosco** – permite a comunicação direta entre usuários e a equipe;
+- **Gestão de Departamentos** – melhora a organização interna;
+- **Painéis de Funcionários** – cada funcionário possui um painel próprio;
+- **Sistema de Permissões** – diferentes níveis de acesso de acordo com o tipo de usuário.
+
+## 🎨 Experiência do Usuário
+
+Para modernizar o visual e tornar o sistema mais responsivo, foi integrado o **Bootstrap**, resultando em:
+
+- Interface mais limpa e profissional;
+- Melhor usabilidade em dispositivos móveis;
+- Layouts padronizados e responsivos.
+
+## 🔁 Refatoramento de Código
+
+Grande parte das **funções principais foi refatorada**, com foco em:
+
+- Otimização de desempenho;
+- Clareza na lógica de programação;
+- Redução de código duplicado.
+
+## 🌐 Hospedagem
+
+O sistema agora está **hospedado na plataforma Hostinger**, garantindo:
+
+- Maior estabilidade e segurança;
+- Melhor tempo de resposta em produção;
+- Suporte completo para banco de dados e PHP.
+
+---
+
+Essas melhorias tornaram o **Frog Tech** um sistema mais completo, confiável e preparado para atender às necessidades dos usuários com maior eficiência e organização.
+
