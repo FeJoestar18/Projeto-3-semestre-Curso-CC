@@ -63,26 +63,50 @@ A identidade visual da Frog Tech é baseada em um tema **verde e branco**, que �
 * **Cards** com bordas arredondadas e sombreamento leve
 * **Formulários e tabelas** com visual moderno e limpo
 
-## ⚖️ Estrutura 
+## ⚖️ Estrutura de Pastas - Frog Tech
+
+Abaixo está a estrutura principal da aplicação **Frog Tech**, com a função de cada pasta e arquivo detalhada para facilitar a navegação e entendimento do projeto:
 
 FROG-TECH/
-├── Api/                      # (Futuras integrações ou APIs internas)
-├── components/               # Componentes reutilizáveis (ex: menu rápido)
-├── Controller/               # Lógica de backend e regras (processamento de formulários, etc)
-├── css/                      # Estilos customizados
-├── database/                 # Scripts de criação e conexão com o banco de dados
-├── Imagens/                  # Imagens da aplicação
-├── img/                      # Ícones, logos e outras imagens (uso duplicado, pode ser unificado)
-├── js/                       # Scripts JavaScript
-├── pages-admin/              # Telas do painel administrativo
-├── pages-usuario/            # Telas acessadas pelos usuários/clientes
-├── uploads-files-produtos/   # Uploads de imagens dos produtos
-├── .env                      # Variáveis de ambiente (ex: BASE_URL)
-├── .gitignore                # Arquivos/pastas ignorados pelo Git
-├── .htaccess                 # Regras de reescrita e segurança para Apache
-├── index.html                # Página inicial
-└── info.php                  # Exibe informações do PHP instalado no servidor
+├── Api/ 🛠️ Endpoints para integrações futuras (REST, AJAX, etc)
 
+├── components/ 🧩 Componentes reutilizáveis (menu lateral, cabeçalho, rodapé)
+
+├── Controller/ 📂 Lógica de negócios e processamento (CRUD, validações, requisições)
+
+├── css/ 🎨 Estilos customizados (tema neon, layout)
+
+├── database/ 💾 Scripts e configurações do banco de dados
+
+├── Imagens/ 🖼️ Imagens gerais (produtos, banners)
+
+├── img/ 🔗 Ícones e imagens estáticas (sugere-se unificar com Imagens/)
+
+├── js/ ⚙️ Scripts JavaScript para funcionalidades e interações
+
+├── pages-admin/ 🛡️ Telas do painel administrativo
+
+│ ├── produtos/ 📦 Gerenciamento de produtos
+
+│ ├── usuarios/ 👥 Gestão de usuários e permissões
+
+│ ├── departamentos/ 🏢 Controle dos departamentos da empresa
+
+│ └── ... ⋯ Outras funcionalidades administrativas
+
+├── pages-usuario/ 👤 Telas para usuários comuns (catálogo, login, registro)
+
+├── uploads-files-produtos/ 📂 Armazenamento das imagens enviadas dos produtos
+
+├── .env 🔐 Variáveis de ambiente (ex: BASE_URL, config banco)
+
+├── .gitignore 🚫 Arquivos e pastas ignorados pelo Git
+
+├── .htaccess 🔧 Regras para URLs amigáveis, segurança e redirecionamentos Apache
+
+├── index.html 🏠 Página inicial 
+
+└── info.php 🧪 Diagnóstico das configurações do PHP
 
 ## 🎓 Contexto Acadêmico
 
