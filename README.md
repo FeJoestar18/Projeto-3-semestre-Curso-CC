@@ -14,6 +14,8 @@ https://github.com/FeJoestar18/FROG-TECH.git
 
 - [Como rodar O Projeto](Como_Rodar_o_Projeto.md)
 
+- [Fluxos de Trabalhos](Fluxos_de_Trabalhos.md)
+
 ---
 
 # Frog Tech - Sistema de E-commerce Acadêmico
