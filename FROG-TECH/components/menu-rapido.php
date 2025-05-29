@@ -17,6 +17,7 @@ $role_id = $_SESSION['role_id'];
         <h2>Ir para:</h2>
         <div class="links-menu">
             <?php if ($role_id == 1 || $role_id == 2): ?>
+                <a href="<?php echo BASE_URL ?>pages-admin/tela-home-adm.php">🏠 Home</a>
                 <a href="<?php echo BASE_URL ?>pages-admin/Funcionario/lista-funcionarios.php">📋 Listar Funcionários</a>
                 <a href="<?php echo BASE_URL ?>pages-admin/departamentos/lista-departamento.php">📂 Listar Departamentos</a>
                 <a href="<?php echo BASE_URL ?>pages-admin/produtos/lista-produtos.php">📦 Listar Produtos</a>
