@@ -4,6 +4,10 @@ https://github.com/FeJoestar18/FROG-TECH.git
 
 ---
 
+
+
+
+
 # Documentação juntamente com o Video e o Database necessario pra rodar o Projeto localmente
 https://drive.google.com/drive/folders/1GnvQkU-7EJX6WX6KMFzwcK7OBR5zrR02?usp=drive_link
 
@@ -22,6 +26,10 @@ https://drive.google.com/file/d/1P_6F6VE96aITSnvWvN7NTD28FiYXLAa5/view?usp=drive
 ---
 TUDO ISSO ACIMA ESTÁ NO PRIMERIO LINK, ESSES LINKS SÓ É CASO QUEIRA VER INDIVIDUALMENTE CADA UM
 ---
+
+
+
+
 
 # Integrantes do Projeto Frog Tech
 
