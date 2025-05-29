@@ -144,7 +144,7 @@ git add .
 git commit -m "Initial commit"
 
 # Configurar o repositório remoto
-git remote add origin https://github.com/FeJoestar18/FROG-TECH.git
+git remote add origin [https://github.com/FeJoestar18/FROG-TECH.git](https://github.com/FeJoestar18/Projeto-3-semestre-Curso-CC.git)
 
 # Enviar os arquivos para o repositório remoto
 git push -u origin main
