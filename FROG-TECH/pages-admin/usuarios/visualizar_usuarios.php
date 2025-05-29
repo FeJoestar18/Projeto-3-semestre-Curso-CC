@@ -23,49 +23,97 @@ $stmt = $pdo->query($query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizar Usuários</title>
     <style>
+        body {
+            background-color: #f5f7fb;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0, 168, 107, 0.15);
+        }
+
+        h1 {
+            color: #00a86b;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-bottom: 20px;
         }
+
+        thead {
+            background-color: #e0f8f0;
+        }
+
         th, td {
-            padding: 10px;
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
             text-align: left;
-            border: 1px solid #ddd;
         }
-        th {
-            background-color: #f2f2f2;
+
+        tr:hover {
+            background-color: #f1fef8;
+        }
+
+        a.btn {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            background-color: #00a86b;
+            color: #fff;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        } */
+
+        a.btn:hover {
+            background-color: #008f5d;
         }
     </style>
 </head>
 <body>
-    <h1>Lista de Usuários</h1>
+    <div class="container">
+        <h1>Lista de Usuários</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Email</th>
-                <th>Telefone</th>
-                <th>CPF</th>
-                <th>Role ID</th>
-                <th>Ações</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
+        <table>
+            <thead>
                 <tr>
-                    <td><?php echo htmlspecialchars($row['id']); ?></td>
-                    <td><?php echo htmlspecialchars($row['email']); ?></td>
-                    <td><?php echo htmlspecialchars($row['telefone']); ?></td>
-                    <td><?php echo htmlspecialchars($row['cpf']); ?></td>
-                    <td><?php echo htmlspecialchars($row['role_id']); ?></td>
-                    <td><a href="editar-usuario.php?id=<?php echo $row['id']; ?>">Editar</a></td>
-                    <td><a href="<?php echo BASE_URL; ?>Controller/admin/deletar-usuario.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a></td>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>CPF</th>
+                    <th>Role ID</th>
+                    <th>Ações</th>
+                    <th>Ações</th>
                 </tr>
-            <?php endwhile; ?>
-        </tbody>
-    </table>
-    <?php include(__DIR__ . "/../../components/menu-rapido.php"); ?>
+            </thead>
+            <tbody>
+                <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($row['id']); ?></td>
+                        <td><?= htmlspecialchars($row['email']); ?></td>
+                        <td><?= htmlspecialchars($row['telefone']); ?></td>
+                        <td><?= htmlspecialchars($row['cpf']); ?></td>
+                        <td><?= htmlspecialchars($row['role_id']); ?></td>
+                        <td><a class = "btn" href="editar-usuario.php?id=<?= $row['id']; ?>">Editar</a></td>
+                        <td><a class = "btn"href="<?= BASE_URL; ?>Controller/admin/deletar-usuario.php?id=<?= $row['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a></td>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
+
+        <?php include(__DIR__ . "/../../components/menu-rapido.php"); ?>
+    </div>
 </body>
 </html>
