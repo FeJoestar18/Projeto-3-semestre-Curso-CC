@@ -1,43 +1,94 @@
-# Frog Tech 2.0 – E-commerce de Tecnologia Melhorado
+# Frog Tech - Sistema de E-commerce Acadêmico
 
-O **Frog Tech 2.0** é uma evolução do projeto original, um e-commerce de produtos tecnológicos desenvolvido em **PHP puro**. Nesta nova versão, o foco será aprimorar a experiência do usuário, otimizar o desempenho e implementar novas funcionalidades para tornar a plataforma mais robusta e eficiente.
+**Frog Tech** é um projeto de e-commerce voltado para fins educacionais, criado como parte de um trabalho universitário de Ciência da Computação, atualmente em sua versão aprimorada para o terceiro semestre. O sistema simula uma loja de produtos tecnológicos e é desenvolvido em **PHP puro**, com **PDO para acesso ao banco de dados** e uma interface moderna inspirada na identidade visual verde neon.
 
-## Principais melhorias:
+## 🏢 Objetivo do Projeto
 
-- Interface mais intuitiva e responsiva.
-- Melhor organização do catálogo de produtos.
-- Sistema de carrinho de compras otimizado.
-- Melhorias na gestão de usuários e pedidos.
-- Implementação de boas práticas de segurança e performance.
+Criar uma plataforma de e-commerce funcional com foco em:
 
-O objetivo é transformar o **Frog Tech** em uma plataforma mais completa, aplicando os conhecimentos adquiridos ao longo do curso e explorando novas tecnologias.
+* Cadastro e gestão de produtos.
+* Registro e baixa de vendas.
+* Autenticação de usuários e perfis (Admin e Funcionários).
+* Controle de departamentos e funcionalidades administrativas.
 
-Se quiser adicionar mais detalhes sobre as melhorias ou tecnologias que pretende usar, me avise! 🚀
+## 💡 Tecnologias Utilizadas
 
--PAGINAS INICIAIS(Dudu90hz, Felipe)
--PAGINAS LOGIN E REGISTRAR(Dudu90hz, Felipe)
--PAGINAS REDEFINIR SENHA(Felipe)
--PAGINAS FALE CONOSCO(Felipe)
--PAGINAS AJUDA DE USUARIO(Dudu90hz)
--PAGINAS HOMES (Dudu90hz)
--PAGINA DA LOJA (Felipe)
--PAGINA COMPRAR PRODUTO (Felipe)
--PAGINA CARRINHO DE COMPRAS (Felipe)
--PAGINA DE CHECKOUT (Felipe)
--PAGINA PAGAMENTO FEITO (Dudu90hz)
--PERFIL DE USUARIO (Felipe)
--PAGINA ALTERAR INFORMAÇÕES DE ENDEREÇO (Felipe)
--PAGINA HOME ADMIN (Dudu90hz)
--PAGINA TABELA USUARIOS LOGADOS (Dudu90hz)
--PAGINA TABELA FALE CONOSCO (Felipe)
--PAGINA RESPOSTAS FALE CONOSCO (Felipe)
--PAGINA TABELA SAIDA DE PRODUTOS (Dudu90hz) 
--PAGINA TABELA FUNCIONARIOS (Felipe)
--PAGINA FUNCIONARIOS REGISTRAR (Felipe)
--PAGINA EDITAR FUNCIONARIOS (Felipe)
--PAGINA TABELA DEPARTAMENTOS (Dudu90hz)
--PAGINA REGISTRAR DEPARTAMENTOS (Dudu90hz)
+* **PHP Puro** (sem frameworks)
+* **PDO** (PHP Data Objects) para comunicação segura com o banco de dados
+* **HTML5** + **CSS3** moderno e responsivo (sem frameworks CSS)
+* **Bootstrap 5** (utilizado em partes com modal e tabelas)
+* **MySQL** (presumido como banco de dados relacional)
 
+## 💼 Funcionalidades do Sistema
 
+### 1. Autenticação
 
+* Login com controle de acesso baseado em roles:
 
+  * `role_id = 1` para Admins
+  * Funcionários logam com o **CPF**, usando a tabela `funcionarios`
+
+### 2. Produtos
+
+* Cada produto possui:
+
+  * ID
+  * Nome
+  * Preço
+  * Descrição
+  * Quantidade
+
+### 3. Saídas (Vendas)
+
+* Registro das compras realizadas
+* Baixa automática no estoque dos produtos
+* Registro do nome e valor de cada produto vendido
+
+### 4. Administração
+
+* Painel com visualização e edição de usuários
+* Cadastro e exclusão de usuários
+* Visualização de perguntas feitas pelos usuários e resposta através de modal
+* Cadastro, edição e exclusão de departamentos
+
+## 🎨 Identidade Visual
+
+A identidade visual da Frog Tech é baseada em um tema **verde neon e branco**, que é aplicado a todas as telas administrativas. O verde primário usado é:
+
+```css
+#00a86b
+```
+
+### Elementos Estilizados
+
+* **Títulos (h1, h2, etc.)** com verde neon
+* **Botões** personalizados com hover animado
+* **Cards** com bordas arredondadas e sombreamento leve
+* **Formulários e tabelas** com visual moderno e limpo
+
+## ⚖️ Estrutura Esperada (Resumida)
+
+* `/pages-admin/` - Páginas do painel administrativo
+* `/Controller/admin/` - Lógicas e processamentos de dados (editar, deletar, etc.)
+* `/components/` - Inclui arquivos como `menu-rapido.php`
+* `BASE_URL` - Constante utilizada para referenciar a raiz do sistema
+
+## 🎓 Contexto Acadêmico
+
+O sistema foi idealizado como parte do **curso de Ciência da Computação**, com foco na compreensão dos princípios básicos de back-end, banco de dados e front-end estruturado sem depender de frameworks complexos.
+
+## ✨ Possíveis Melhorias Futuras
+
+* Integração com sistema de pagamentos
+* Relatórios gráficos (vendas, estoque)
+* Upload de imagens dos produtos
+* API para integrações externas
+* Controle de sessão e log de auditoria
+
+## 🚀 Conclusão
+
+Frog Tech é um excelente exemplo de aplicação PHP com boas práticas básicas, padrões visuais bem definidos e propósito educacional. Um sistema ideal para demonstrar conhecimento em CRUD, autenticação, manipulação de banco de dados e organização de código.
+
+---
+
+> "Tecnologia em evolução constante, aprendizado em progresso infinito." - Frog Tech
