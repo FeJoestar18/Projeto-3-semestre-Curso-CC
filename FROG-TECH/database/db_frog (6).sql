@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 14/05/2025 às 18:55
+-- Tempo de geração: 29/05/2025 às 01:53
 -- Versão do servidor: 8.3.0
 -- Versão do PHP: 8.2.18
 
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `compras` (
   PRIMARY KEY (`id`),
   KEY `produto_id` (`produto_id`),
   KEY `fk_user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=89 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `compras`
@@ -96,7 +96,21 @@ INSERT INTO `compras` (`id`, `produto_id`, `nome_produto`, `preco`, `quantidade`
 (71, 21, 'Cláudio Sebastião Figueiredo', 250.00, 10, '2025-05-12 16:48:11', 16),
 (72, 21, 'Cláudio Sebastião Figueiredo', 250.00, 240, '2025-05-12 16:52:59', 16),
 (73, 24, 'Carregador Portátil Carregamento Rápido Turbo 20000mAh', 47.99, 1, '2025-05-13 03:36:08', 16),
-(74, 24, 'Carregador Portátil Carregamento Rápido Turbo 20000mAh', 47.99, 1, '2025-05-13 16:08:50', 16);
+(74, 24, 'Carregador Portátil Carregamento Rápido Turbo 20000mAh', 47.99, 1, '2025-05-13 16:08:50', 16),
+(75, 22, 'Cabo HDMI 2.0 4K de 20 metros', 169.90, 1, '2025-05-28 03:15:40', 20),
+(76, 22, 'Cabo HDMI 2.0 4K de 20 metros', 169.90, 1, '2025-05-28 03:18:48', 20),
+(77, 25, 'Switch hub de mesa 8 portas 10/100 TP-Link TL-SF1008D', 69.37, 1, '2025-05-28 03:26:05', 20),
+(78, 25, 'Switch hub de mesa 8 portas 10/100 TP-Link TL-SF1008D', 69.37, 1, '2025-05-28 03:26:12', 20),
+(79, 25, 'Switch hub de mesa 8 portas 10/100 TP-Link TL-SF1008D', 69.37, 1, '2025-05-28 03:26:25', 20),
+(80, 25, 'Switch hub de mesa 8 portas 10/100 TP-Link TL-SF1008D', 69.37, 10, '2025-05-28 03:26:31', 20),
+(81, 25, 'Switch hub de mesa 8 portas 10/100 TP-Link TL-SF1008D', 69.37, 10, '2025-05-28 03:26:38', 20),
+(82, 23, 'Caixa De Som Jbl Go 4 Bluetooth Portátil À Prova D\'água', 299.20, 1, '2025-05-28 03:33:35', 20),
+(83, 24, 'Carregador Portátil Carregamento Rápido Turbo 20000mAh', 47.99, 1, '2025-05-28 03:33:35', 20),
+(84, 22, 'Cabo HDMI 2.0 4K de 20 metros', 169.90, 10, '2025-05-28 03:33:35', 20),
+(85, 22, 'Cabo HDMI 2.0 4K de 20 metros', 169.90, 1, '2025-05-28 03:34:09', 20),
+(86, 22, 'Cabo HDMI 2.0 4K de 20 metros', 169.90, 1, '2025-05-28 03:34:20', 20),
+(87, 22, 'Cabo HDMI 2.0 4K de 20 metros', 169.90, 1, '2025-05-29 01:30:29', 20),
+(88, 22, 'Cabo HDMI 2.0 4K de 20 metros', 169.90, 1, '2025-05-29 01:31:32', 20);
 
 -- --------------------------------------------------------
 
@@ -162,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `funcionarios` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `cpf` (`cpf`),
   KEY `fk_funcionarios_departamentos` (`departamento_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `funcionarios`
@@ -217,10 +231,10 @@ CREATE TABLE IF NOT EXISTS `produtos` (
 --
 
 INSERT INTO `produtos` (`id`, `nome`, `preco`, `descricao`, `quantidade`, `imagem`, `categoria_id`) VALUES
-(23, 'Caixa De Som Jbl Go 4 Bluetooth Portátil À Prova D\'água', 299.20, 'JBL GO 4 ORIGINAL - Som ultra portátil JBL GO 4 com graves mais potentes', 1000, '68229714eb9f2.png', 18),
-(22, 'Cabo HDMI 2.0 4K de 20 metros', 169.90, 'Trazendo mais qualidade de som e imagem para seus equipamentos favoritos', 1000, '682296c9615f2.png', 14),
-(24, 'Carregador Portátil Carregamento Rápido Turbo 20000mAh', 47.99, 'Um dispositivo compacto e potente, ideal para manter seus dispositivos sempre carregados.', 998, '682297a6e398a.png', 10),
-(25, 'Switch hub de mesa 8 portas 10/100 TP-Link TL-SF1008D', 69.37, 'Switch de mesa de 8 portas 10/100Mbps\r\n8 portas RJ45 de auto-negociação 10/100Mbps, suporta auto MDI/MDIX', 1000, '68229812dcffe.png', 10),
+(23, 'Caixa De Som Jbl Go 4 Bluetooth Portátil À Prova D\'água', 299.20, 'JBL GO 4 ORIGINAL - Som ultra portátil JBL GO 4 com graves mais potentes', 999, '68229714eb9f2.png', 18),
+(22, 'Cabo HDMI 2.0 4K de 20 metros', 169.90, 'Trazendo mais qualidade de som e imagem para seus equipamentos favoritos', 984, '682296c9615f2.png', 14),
+(24, 'Carregador Portátil Carregamento Rápido Turbo 20000mAh', 47.99, 'Um dispositivo compacto e potente, ideal para manter seus dispositivos sempre carregados.', 997, '682297a6e398a.png', 10),
+(25, 'Switch hub de mesa 8 portas 10/100 TP-Link TL-SF1008D', 69.37, 'Switch de mesa de 8 portas 10/100Mbps\r\n8 portas RJ45 de auto-negociação 10/100Mbps, suporta auto MDI/MDIX', 977, '68229812dcffe.png', 10),
 (26, 'Estabilizador TS Shara Powerest 300VA, 115V, 4 Tomadas, Preto - 9100', 89.90, 'O Estabilizador PowerEst é a proteção ideal para os equipamentos eletrodomésticos em geral', 1000, '68229859545fc.png', 17),
 (27, 'Repetidor Wifi Mi Range Extender Pro Xiaomi Preto', 108.00, 'Um dispositivo que amplia o alcance e a cobertura do Wi-Fi em residências ou escritórios, proporcionando estabilidade nas conexões', 1000, '68229894e9b39.png', 14),
 (28, 'JBL, Fone de Ouvido On ear, Tune 720BT - Preto', 305.00, 'JBL PURE BASS. O JBL Tune 720BT apresenta o renomado som JBL Pure Bass, o mesmo que toca nos locais mais famosos em todo o mundo.', 1000, '682298c4bcd69.png', 18),
@@ -292,7 +306,16 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela `questions`
+--
+
+INSERT INTO `questions` (`id`, `user_id`, `question`, `answer`, `created_at`) VALUES
+(5, 20, 'teste', 'teste', '2025-05-28 03:01:04'),
+(6, 20, 'texts', 'teste', '2025-05-29 00:47:56'),
+(7, 20, 'teste', 'teste', '2025-05-29 00:51:48');
 
 -- --------------------------------------------------------
 
@@ -320,7 +343,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   UNIQUE KEY `cpf` (`cpf`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `telefone` (`telefone`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `usuarios`
@@ -328,7 +351,8 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `email`, `senha`, `cpf`, `telefone`, `token_recuperacao`, `token_expira`, `role_id`, `cep`, `rua`, `bairro`, `cidade`, `estado`, `foto`) VALUES
 (17, 'teste2@mailna.co', '$2y$10$qIiMZYPOSLXQiOD02yBub.xPFYpjuTlvBiZpPGPYYd44TToSsZbh2', '12345678911', '11932920444', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL),
-(20, 'teste@mailna.co', '$2y$10$0RVWRANQceQrzovbMzegHeyNDBy3t0VvpFuThZYz.yQbdy0LkkTNi', '15799945041', '12345678911', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, '682374a1db1b6.png');
+(20, 'teste@mailna.co', '$2y$10$0RVWRANQceQrzovbMzegHeyNDBy3t0VvpFuThZYz.yQbdy0LkkTNi', '15799945041', '12345678911', NULL, NULL, 3, '74969-436', 'Rua das Hosanas', 'Jardim Monte Líbano', 'Aparecida de Goiânia', 'GO', '682374a1db1b6.png'),
+(21, 'felipe@uorak.com', '$2y$10$zsuoJoNNY7O8cNwzhk4uTeotL7v47DbEqE0u410UjccwtlwowkiuS', '85076126522', '', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Restrições para tabelas despejadas
