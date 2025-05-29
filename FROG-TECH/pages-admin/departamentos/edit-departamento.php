@@ -30,5 +30,6 @@ include_once('../../Controller/admin/process-form-edit-departamento.php');
             <a href="<?= BASE_URL ?>pages-admin/departamentos/lista-departamento.php" class="btn btn-secondary">Cancelar</a>
         </form>
     </div>
+    <?php include(__DIR__ . "/../../components/menu-rapido.php"); ?>
 </body>
 </html>

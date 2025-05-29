@@ -64,5 +64,6 @@ $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
         <button type="submit" name="edit_user">Atualizar</button>
     </form>
+    <?php include(__DIR__ . "/../../components/menu-rapido.php"); ?>
 </body>
 </html>

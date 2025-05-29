@@ -42,6 +42,6 @@ if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 1) {
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+<?php include(__DIR__ . "/../../components/menu-rapido.php"); ?>
 </body>
 </html>

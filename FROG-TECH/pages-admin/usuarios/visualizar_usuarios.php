@@ -66,5 +66,6 @@ $stmt = $pdo->query($query);
             <?php endwhile; ?>
         </tbody>
     </table>
+    <?php include(__DIR__ . "/../../components/menu-rapido.php"); ?>
 </body>
 </html>

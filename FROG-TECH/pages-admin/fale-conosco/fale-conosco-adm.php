@@ -94,5 +94,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 </script>
+<?php include(__DIR__ . "/../../components/menu-rapido.php"); ?>
 </body>
 </html>

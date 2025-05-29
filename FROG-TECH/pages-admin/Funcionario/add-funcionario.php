@@ -120,6 +120,7 @@ $departamentos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <button type="submit" class="btn btn-success">Cadastrar Funcionário</button>
     </form>
+    <?php include(__DIR__ . "/../../components/menu-rapido.php"); ?>
 </body>
 </html>
 

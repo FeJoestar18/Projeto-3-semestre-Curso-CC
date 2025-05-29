@@ -53,5 +53,8 @@ if (isset($_SESSION['user_id']) && ($_SESSION['role_id'] === 1 || $_SESSION['rol
 
     <a href="../Controller/logout.php" class="logout" onclick="return confirm('Deseja realmente sair?')">🚪 Sair</a>
   </div>
+
+  
+
 </body>
 </html>

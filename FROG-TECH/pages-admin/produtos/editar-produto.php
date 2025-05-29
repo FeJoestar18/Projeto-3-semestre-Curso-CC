@@ -85,6 +85,6 @@ function limitarDescricao() {
     }
 }
 </script>
-
+<?php include(__DIR__ . "/../../components/menu-rapido.php"); ?>
 </body>
 </html>

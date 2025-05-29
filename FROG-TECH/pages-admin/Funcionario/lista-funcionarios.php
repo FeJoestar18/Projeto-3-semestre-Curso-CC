@@ -63,5 +63,6 @@ $funcionarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </table>
 </div>
 
+    <?php include(__DIR__ . "/../../components/menu-rapido.php"); ?>
 </body>
 </html>
