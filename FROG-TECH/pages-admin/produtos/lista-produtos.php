@@ -72,16 +72,15 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 ?>
                         </td>
                         <td>
-                            <a href="<?php echo BASE_URL; ?>pages-admin/produtos/editar-produto.php?id=<?= $produto['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="<?php echo BASE_URL; ?>pages-admin/produtos/editar-produto.php?id=<?= $produto['id'] ?>" class="btn btn-warning btn-sm"style="background-color: #00a86b;">Editar</a>
                             <a href="<?php echo BASE_URL; ?>Controller/admin/deletar-produto.php?id=<?= $produto['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
-        </table>
-
-        <a href="<?php echo BASE_URL; ?>pages-admin/produtos/add-produto.php" class="btn btn-primary">Adicionar Novo Produto</a>
+            <a href="<?php echo BASE_URL; ?>pages-admin/produtos/add-produto.php" class="btn btn-primary" style="background-color: #00a86b;">Adicionar Novo Produto</a><br><br>
     </div>
+        </table>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <?php include(__DIR__ . "/../../components/menu-rapido.php"); ?>

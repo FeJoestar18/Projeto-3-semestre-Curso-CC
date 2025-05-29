@@ -67,7 +67,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['role_id'] === 1) {
                 <input type="file" class="form-control" id="imagem" name="imagem">
             </div>
 
-            <button type="submit" class="btn btn-primary">Adicionar Produto</button>
+            <button type="submit" class="btn btn-primary" style="background-color: #00a86b;">Adicionar Produto</button>
         </form>
     </div>
 

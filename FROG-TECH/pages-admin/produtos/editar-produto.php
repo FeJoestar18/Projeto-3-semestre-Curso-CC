@@ -56,7 +56,7 @@ $categorias = $stmt->fetchAll();
             </div>
 
 
-            <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+            <button type="submit" class="btn btn-primary" style="background-color: #00a86b;">Salvar Alterações</button>
             <a href="<?= BASE_URL ?>pages-admin/produtos/lista-produtos.php" class="btn btn-secondary">Cancelar</a>
         </form>
     </div>
