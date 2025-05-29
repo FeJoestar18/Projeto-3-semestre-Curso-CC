@@ -1,0 +1,11 @@
+# Limitar o tamanho de upload de arquivos
+php_value upload_max_filesize 10M
+php_value post_max_size 12M
+
+# Permitir acesso à pasta 'uploads' (com listagem de arquivos)
+Options +Indexes
+
+# Permitir tipos de arquivos de imagem
+<FilesMatch "\.(jpg|jpeg|png|gif|bmp|svg|webp)$">
+    SetHandler default-handler
+</FilesMatch>
