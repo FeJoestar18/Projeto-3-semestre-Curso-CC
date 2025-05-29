@@ -4,6 +4,9 @@ https://github.com/FeJoestar18/FROG-TECH.git
 
 ---
 
+### LINKS 
+- [Documentação e Videos](Links de Documentação e Videos Frog-tech.md)
+
 # Frog Tech - Sistema de E-commerce Acadêmico
 
 **Frog Tech** é um projeto de e-commerce voltado para fins educacionais, criado como parte de um trabalho universitário de Ciência da Computação, atualmente em sua versão aprimorada para o terceiro semestre. O sistema simula uma loja de produtos tecnológicos e é desenvolvido em **PHP puro**, com **PDO para acesso ao banco de dados** e uma interface moderna inspirada na identidade visual verde neon.
